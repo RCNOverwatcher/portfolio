@@ -1,8 +1,10 @@
+import FadeIn from "react-fade-in";
+
 const AboutPage = () => {
   return (
-    <>
-      <h3>A Little Bit About Me</h3>
-    </>
+    <FadeIn>
+      <h3>About Me</h3>
+    </FadeIn>
   );
 };
 

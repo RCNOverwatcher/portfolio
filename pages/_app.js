@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import Layout from "../components/Layout";
 import Head from "../components/Head";
 import "../styles/globals.css";
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Layout>
-      <Head title={`Nitin Ranganath | ${pageProps.title}`} />
+      <Head title={`Jacob Wiltshire | ${pageProps.title}`} />
       <Component {...pageProps} />
     </Layout>
   );
