@@ -12,49 +12,49 @@
 .react {
   border: 0.1rem solid rgb(97, 218, 251);
 }
-.react:hover {
+.premiere-pro:hover {
   background: rgba(97, 218, 251, 0.25);
 }
 
-.node {
+.premiere-pro {
   border: 0.1rem solid rgb(131, 205, 41);
 }
-.node:hover {
+.premiere-pro:hover {
   background: rgba(131, 205, 41, 0.25);
 }
 
-.mongodb {
+.pygame {
   border: 0.1rem solid rgb(67, 153, 52);
 }
-.mongodb:hover {
+.pygame:hover {
   background: rgba(67, 153, 52, 0.25);
 }
 
-.redux {
+.python {
   border: 0.1rem solid rgb(118, 74, 188);
 }
-.redux:hover {
+.python:hover {
   background: rgba(118, 74, 188, 0.25);
 }
 
-.razorpay {
+.vanilla-js {
   border: 0.1rem solid rgb(82, 143, 240);
 }
-.razorpay:hover {
+.vanilla-js:hover {
   background: rgba(82, 143, 240, 0.25);
 }
 
-.material-ui {
+.html {
   border: 0.1rem solid rgb(25, 118, 210);
 }
-.material-ui:hover {
+.html:hover {
   background: rgba(25, 118, 210, 0.25);
 }
 
-.bulma {
+.css {
   border: 0.1rem solid rgb(0, 209, 178);
 }
-.bulma:hover {
+.css:hover {
   background: rgb(0, 209, 178, 0.25);
 }
 
