@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Illustration from '../components/Illustration';
 import styles from '../styles/HomePage.module.css';
 import FadeIn from "react-fade-in";
 
@@ -8,8 +7,8 @@ export default function HomePage() {
     <FadeIn>
       <div className={styles.container}>
         <div className={styles.background}>
-          <h1>I BUILD</h1>
-          <h1>WEBSITES</h1>
+          <h1>JACOB</h1>
+          <h1>WILTSHIRE</h1>
         </div>
         <div className={styles.foreground}>
           <div className={styles.content}>
@@ -22,7 +21,6 @@ export default function HomePage() {
               <button className={styles.outlined}>Contact Me</button>
             </Link>
           </div>
-          <Illustration className={styles.illustration} />
         </div>
       </div>
     </FadeIn>
