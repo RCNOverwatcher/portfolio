@@ -6,5 +6,29 @@ module.exports = {
       'imgur.com',
       'i.imgur.com'
     ]
-  }
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/about',
+        destination: '/',
+      },
+      {
+        source: '/contact',
+        destination: '/',
+      },
+      {
+      source: '/projects',
+      destination: '/',
+      },
+      {
+        source: '/github',
+        destination: '/',
+      },
+      {
+        source: '/settings',
+        destination: '/',
+      }
+    ]
+  },
 };
