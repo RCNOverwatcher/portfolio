@@ -10,28 +10,11 @@
   },
   {
     "id": 2,
-    "name": "Temp",
-    "image": "https://i.imgur.com/73otNSU.png",
-    "description": "temp",
-    "tags": ["react", "node", "mongodb", "redux", "razorpay", "material-ui"],
-    "demo": "https://google.com"
-  },
-  {
-    "id": 3,
     "name": "Pointercrate GUI",
     "image": "https://i.imgur.com/DMqRmLN.png",
     "description": "A GUI for the Pointercrate API. My first adventure into JavaScript.",
     "tags": ["vanilla-js", "css", "html"],
     "source_code": "https://raw.githubusercontent.com/RCNOverwatcher/RCNOverwatcher.github.io/master/projects/pointercrate/index.html",
     "demo": "https://rcnoverwatcher.github.io/projects/pointercrate/"
-  },
-  {
-    "id": 4,
-    "name": "Personal Website/Porfolio",
-    "image": "https://i.imgur.com/AQFv8a5.png",
-    "description": "A themeable and developer-centric portfolio based on the VSCode",
-    "tags": ["next", "css-modules"],
-    "source_code": "https://github.com/RCNOverwatcher/RCNOverwatcher.github.io",
-    "demo": "https//jacobwiltshire.dev"
   }
 ]
