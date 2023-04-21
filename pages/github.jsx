@@ -71,7 +71,6 @@ export async function getStaticProps() {
   );
   let repos = await repoRes.json();
   repos = repos
-    .filter((repo) => !repo.fork)
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .slice(0, 8);
 
