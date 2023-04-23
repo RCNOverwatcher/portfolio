@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    {"source": "/ai/", "destination": "https://gptinsult.vercel.app/"},
+    {"source": "/pointercrate/", "destination": "https://pointercrate-api-search.vercel.app/"}
+  ]
+}
