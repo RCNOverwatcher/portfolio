@@ -7,6 +7,17 @@ import MailIcon from './icons/MailIcon';
 import AccountIcon from './icons/AccountIcon';
 import SettingsIcon from './icons/SettingsIcon';
 import styles from '../styles/Sidebar.module.css';
+import {useHotkeys} from "react-hotkeys-hook";
+
+function hideSidebar() {
+  var x = document.getElementById("sidebar");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
 
 const sidebarTopItems = [
   {
@@ -41,45 +52,49 @@ const sidebarBottomItems = [
 const Sidebar = () => {
   const router = useRouter();
 
+  useHotkeys('ctrl+q', () => alert('You pressed ctrl+q'));
+
   return (
-    <aside className={styles.sidebar}>
-      <div className={styles.sidebarTop}>
-        {sidebarTopItems.map(({ Icon, path }) => (
-          <Link href={path} key={path}>
-            <div
-              className={`${styles.iconContainer} ${
-                router.pathname === path && styles.active
-              }`}
-            >
-              <Icon
-                fill={
-                  router.pathname === path
-                    ? 'rgb(225, 228, 232)'
-                    : 'rgb(106, 115, 125)'
-                }
-                className={styles.icon}
-              />
-            </div>
-          </Link>
-        ))}
-      </div>
-      <div className={styles.sidebarBottom}>
-        {sidebarBottomItems.map(({ Icon, path }) => (
-          <div className={styles.iconContainer}>
-            <Link href={path} key={path}>
-              <Icon
-                fill={
-                  router.pathname === path
-                    ? 'rgb(225, 228, 232)'
-                    : 'rgb(106, 115, 125)'
-                }
-                className={styles.icon}
-              />
-            </Link>
+      <div id="sidebar">
+        <aside className={styles.sidebar}>
+          <div className={styles.sidebarTop}>
+            {sidebarTopItems.map(({ Icon, path }) => (
+              <Link href={path} key={path}>
+                <div
+                  className={`${styles.iconContainer} ${
+                    router.pathname === path && styles.active
+                  }`}
+                >
+                  <Icon
+                    fill={
+                      router.pathname === path
+                        ? 'rgb(225, 228, 232)'
+                        : 'rgb(106, 115, 125)'
+                    }
+                    className={styles.icon}
+                  />
+                </div>
+              </Link>
+            ))}
           </div>
-        ))}
+          <div className={styles.sidebarBottom}>
+            {sidebarBottomItems.map(({ Icon, path }) => (
+              <div className={styles.iconContainer}>
+                <Link href={path} key={path}>
+                  <Icon
+                    fill={
+                      router.pathname === path
+                        ? 'rgb(225, 228, 232)'
+                        : 'rgb(106, 115, 125)'
+                    }
+                    className={styles.icon}
+                  />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </aside>
       </div>
-    </aside>
   );
 };
 
