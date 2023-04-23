@@ -5,7 +5,7 @@ import FadeIn from "react-fade-in";
 const ContactPage = () => {
 
   return (
-      <FadeIn>
+    <FadeIn transitionDuration={1000}>
       <div className={styles.container}>
         <div>
           <h3 className={styles.heading}>Reach Out Via Socials</h3>

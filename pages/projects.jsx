@@ -5,7 +5,7 @@ import FadeIn from "react-fade-in";
 
 const ProjectsPage = ({ projects }) => {
   return (
-    <FadeIn>
+    <FadeIn transitionDuration={1000}>
       <h3>Stuff I've Built So Far</h3>
       <div className={styles.container}>
         {projects.map((project) => (

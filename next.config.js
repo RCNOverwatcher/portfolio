@@ -1,5 +1,3 @@
-const rehypeSlug = import('rehype-slug');
-
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
@@ -7,9 +5,7 @@ const withMDX = require('@next/mdx')({
     // as the package is ESM only
     // https://github.com/remarkjs/remark-gfm#install
     remarkPlugins: [],
-    rehypePlugins: [
-        rehypeSlug,
-    ],
+    rehypePlugins: [],
     // If you use `MDXProvider`, uncomment the following line.
     // providerImportSource: "@mdx-js/react",
   },

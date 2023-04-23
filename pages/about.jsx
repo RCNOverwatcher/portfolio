@@ -2,7 +2,7 @@ import FadeIn from "react-fade-in";
 
 const AboutPage = () => {
   return (
-    <FadeIn>
+    <FadeIn transitionDuration={1000}>
       <h3>About Me</h3>
     </FadeIn>
   );

@@ -14,7 +14,7 @@ const GithubPage = ({ repos, user }) => {
   };
 
   return (
-    <FadeIn>
+    <FadeIn transitionDuration={1000}>
       <div className={styles.user}>
         <div>
           <Image

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -71,15 +73,15 @@ const Explorer = () => {
           style={portfolioOpen ? { display: 'block' } : { display: 'none' }}
         >
           {explorerItems.map((item) => (
-            <Link href={item.path} key={item.name}>
+            <Link href={item.path}>
               <div className={styles.file}>
                 <Image
                   src={`/${item.icon}`}
                   alt={item.name}
                   height={18}
                   width={18}
-                />{' '}
-                <p>{item.name}</p>
+                />
+                <p className={styles.text}>{item.name}</p>
               </div>
             </Link>
           ))}
