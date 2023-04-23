@@ -36,3 +36,4 @@ yarn-error.log*
 /.idea/.gitignore
 /.idea/portfolio.iml
 /.idea/vcs.xml
+/package-lock.json
