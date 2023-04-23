@@ -3,6 +3,17 @@ import Image from 'next/image';
 import { useState } from 'react';
 import ChevronRight from '../components/icons/ChevronRight';
 import styles from '../styles/Explorer.module.css';
+import {useHotkeys} from "react-hotkeys-hook";
+
+function toggleSidebar() {
+  var x = document.getElementById("sidebar");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
 
 const explorerItems = [
   {
@@ -35,8 +46,10 @@ const explorerItems = [
 const Explorer = () => {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
 
+  useHotkeys('ctrl+b', () => toggleSidebar());
+
   return (
-    <div className={styles.explorer}>
+    <div className={styles.explorer} id="sidebar">
       <p className={styles.title}>Explorer</p>
       <div>
         <input
