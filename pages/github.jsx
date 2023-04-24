@@ -1,16 +1,16 @@
-import Image from 'next/image';
-import GitHubCalendar from 'react-github-calendar';
-import RepoCard from '../components/RepoCard';
-import styles from '../styles/GithubPage.module.css';
+import Image from "next/image";
+import GitHubCalendar from "react-github-calendar";
+import RepoCard from "../components/RepoCard";
+import styles from "../styles/GithubPage.module.css";
 import FadeIn from "react-fade-in";
 
 const GithubPage = ({ repos, user }) => {
   const theme = {
-    level0: '#161B22',
-    level1: '#0e4429',
-    level2: '#006d32',
-    level3: '#26a641',
-    level4: '#39d353',
+    level0: "#161B22",
+    level1: "#0e4429",
+    level2: "#006d32",
+    level3: "#26a641",
+    level4: "#39d353",
   };
 
   return (
@@ -75,10 +75,9 @@ export async function getStaticProps() {
     .slice(0, 8);
 
   return {
-    props: { title: 'GitHub', repos, user },
+    props: { title: "GitHub", repos, user },
     revalidate: 10,
   };
 }
 
 export default GithubPage;
-

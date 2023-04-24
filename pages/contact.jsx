@@ -1,9 +1,8 @@
-import ContactCode from '../components/ContactCode';
-import styles from '../styles/ContactPage.module.css';
+import ContactCode from "../components/ContactCode";
+import styles from "../styles/ContactPage.module.css";
 import FadeIn from "react-fade-in";
 
 const ContactPage = () => {
-
   return (
     <FadeIn transitionDuration={1000}>
       <div className={styles.container}>
@@ -18,7 +17,7 @@ const ContactPage = () => {
 
 export async function getStaticProps() {
   return {
-    props: { title: 'Contact' },
+    props: { title: "Contact" },
   };
 }
 

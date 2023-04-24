@@ -1,6 +1,6 @@
-import ProjectCard from '../components/ProjectCard';
-import { getProjects } from './api/projects';
-import styles from '../styles/ProjectsPage.module.css';
+import ProjectCard from "../components/ProjectCard";
+import { getProjects } from "./api/projects";
+import styles from "../styles/ProjectsPage.module.css";
 import FadeIn from "react-fade-in";
 
 const ProjectsPage = ({ projects }) => {
@@ -20,7 +20,7 @@ export async function getStaticProps() {
   const projects = getProjects();
 
   return {
-    props: { title: 'Projects', projects },
+    props: { title: "Projects", projects },
   };
 }
 

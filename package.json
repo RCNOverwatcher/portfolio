@@ -18,5 +18,8 @@
     "react-fade-in": "^2.0.1",
     "react-github-calendar": "^3.2.2",
     "react-hotkeys-hook": "^4.4.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8"
   }
 }
