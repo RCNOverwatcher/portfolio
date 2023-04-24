@@ -6,9 +6,9 @@ const Titlebar = () => {
     <section className={styles.titlebar}>
       <Image
         src="/rcnLogo.png"
-        alt="VSCode Icon"
-        height={24}
-        width={24}
+        alt="RCN Logo"
+        height={32}
+        width={32}
         className={styles.icon}
       />
       <p className={styles.title}>Jacob Wiltshire</p>
