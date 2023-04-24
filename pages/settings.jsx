@@ -1,6 +1,6 @@
 import ThemeInfo from "../components/ThemeInfo";
 import styles from "../styles/SettingsPage.module.css";
-import FadeIn from "react-fade-in";
+import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
 
 const SettingsPage = () => {
   return (

@@ -1,4 +1,4 @@
-import FadeIn from "react-fade-in";
+import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
 import styles from "../../styles/Pointercrate.module.css";
 import React, { useState } from "react";
 import {darkMode} from "../../tailwind.config";

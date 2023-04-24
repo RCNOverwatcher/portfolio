@@ -1,4 +1,4 @@
-import FadeIn from "react-fade-in";
+import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
 
 const AboutPage = () => {
   return (

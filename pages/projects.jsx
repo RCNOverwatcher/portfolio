@@ -1,7 +1,7 @@
 import ProjectCard from "../components/ProjectCard";
 import { getProjects } from "./api/projects";
 import styles from "../styles/ProjectsPage.module.css";
-import FadeIn from "react-fade-in";
+import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
 
 const ProjectsPage = ({ projects }) => {
   return (

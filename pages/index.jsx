@@ -1,7 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import Link from "next/link";
 import styles from "../styles/HomePage.module.css";
-import FadeIn from "react-fade-in";
+import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
 
 export default function HomePage() {
   return (

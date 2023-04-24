@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import styles from '../styles/ThemeInfo.module.css';
-import FadeIn from "react-fade-in";
+import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
 
 const ThemeInfo = ({ icon, name, publisher, theme }) => {
   const setTheme = (theme) => {
