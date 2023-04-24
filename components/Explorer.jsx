@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
@@ -42,10 +40,26 @@ const explorerItems = [
     path: "/github",
     icon: "markdown_icon.svg",
   },
+  {
+    name: "Projects",
+    items: [
+      {
+        name: "pointercrate.js",
+        path: "/projects/pointercrate",
+        icon: "demon.svg",
+      },
+      {
+        name: "raspberry-pygame.py",
+        path: "/projects/raspberry-pygame",
+        icon: "python_icon.svg",
+      },
+    ],
+  },
 ];
 
 const Explorer = () => {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
+  const [folderOpen, setFolderOpen] = useState(true);
 
   useHotkeys("ctrl+b", () => toggleSidebar());
 
@@ -71,19 +85,65 @@ const Explorer = () => {
           className={styles.files}
           style={portfolioOpen ? { display: "block" } : { display: "none" }}
         >
-          {explorerItems.map((item) => (
-            <Link href={item.path}>
-              <div className={styles.file}>
-                <Image
-                  src={`/${item.icon}`}
-                  alt={item.name}
-                  height={18}
-                  width={18}
-                />
-                <p className={styles.text}>{item.name}</p>
-              </div>
-            </Link>
-          ))}
+          {explorerItems.map((item) => {
+            if (item.items) {
+              return (
+                <div className={styles.folder}>
+                  <input
+                    type="checkbox"
+                    className={styles.checkbox}
+                    id="folder-checkbox"
+                    checked={folderOpen}
+                    onChange={() => setFolderOpen(!folderOpen)}
+                  />
+                  <label
+                    htmlFor="folder-checkbox"
+                    className={"${styles.heading} ${styles.folderLabel}"}
+                  >
+                    <ChevronRight
+                      className={styles.chevron}
+                      style={folderOpen ? { transform: "rotate(90deg)" } : {}}
+                    />
+                    {item.name}
+                  </label>
+                  <div
+                    className={styles.subItems}
+                    style={
+                      folderOpen ? { display: "block" } : { display: "none" }
+                    }
+                  >
+                    {item.items.map((subItem) => (
+                      <Link href={subItem.path}>
+                        <div className={styles.file}>
+                          <Image
+                            src={`/${subItem.icon}`}
+                            alt={subItem.name}
+                            height={18}
+                            width={18}
+                          />
+                          <p className={styles.text}>{subItem.name}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            } else {
+              return (
+                <Link href={item.path}>
+                  <div className={styles.file}>
+                    <Image
+                      src={`/${item.icon}`}
+                      alt={item.name}
+                      height={18}
+                      width={18}
+                    />
+                    <p className={styles.text}>{item.name}</p>
+                  </div>
+                </Link>
+              );
+            }
+          })}
         </div>
       </div>
     </div>

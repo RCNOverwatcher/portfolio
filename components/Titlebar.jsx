@@ -5,27 +5,13 @@ const Titlebar = () => {
   return (
     <section className={styles.titlebar}>
       <Image
-        src="/vscode_icon.svg"
+        src="/rcnLogo.png"
         alt="VSCode Icon"
-        height={15}
-        width={15}
+        height={24}
+        width={24}
         className={styles.icon}
       />
-      <div className={styles.items}>
-        <p>File</p>
-        <p>Edit</p>
-        <p>View</p>
-        <p>Go</p>
-        <p>Run</p>
-        <p>Terminal</p>
-        <p>Help</p>
-      </div>
-      <p className={styles.title}>Jacob Wiltshire - Visual Studio Code</p>
-      <div className={styles.windowButtons}>
-        <span className={styles.minimize}></span>
-        <span className={styles.maximize}></span>
-        <span className={styles.close}></span>
-      </div>
+      <p className={styles.title}>Jacob Wiltshire</p>
     </section>
   );
 };
