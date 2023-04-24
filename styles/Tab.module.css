@@ -8,6 +8,13 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.9rem;
   cursor: pointer;
+  vertical-align: middle;
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
 }
 
 .tab p {
@@ -18,4 +25,8 @@
   border-top: 1px solid var(--accent-color);
   background: var(--tab-active-bg);
   border-bottom: none;
+}
+
+.tab:hover, .tab:focus, .tab:active {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
