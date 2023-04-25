@@ -8,15 +8,17 @@ import useKonami from "react-use-konami";
 import {useState} from "react";
 import Image from "next/image";
 
+
+
 const Layout = ({ children }) => {
     const [isActive, setActive] = useState("false");
 
     useKonami(() => {
         // @ts-ignore
-        setActive(isActive => !isActive)
+        setActive(isActive => !isActive);
+        const audio = new Audio("https://res.cloudinary.com/dtqhs8nvm/video/upload/v1682450542/kaleb_a3zfyp.mp3");
+        audio.play();
     });
-
-
   return (
     <>
       <Titlebar />
