@@ -10,6 +10,20 @@ if (typeof window !== "undefined") {
   });
 }
 
+function replaceErrors(key, value) {
+    if (value instanceof Error) {
+        return Object.getOwnPropertyNames(value).reduce(function (
+                error,
+                key
+            ) {
+                error[key] = value[key];
+                return error;
+            },
+            {});
+    }
+    return value;
+}
+
 function loadFile(url, callback) {
   PizZipUtils.getBinaryContent(url, callback);
 }
@@ -24,27 +38,14 @@ const generateDocument = () => {
       let zip = new PizZip(content);
       let doc = new Docxtemplater().loadZip(zip);
       doc.setData({
-        first_name: "John",
-        last_name: "Doe",
-        phone: "0652455478",
-        description: "New Website",
+        first_name: "Jacob",
+        last_name: "Wiltshire",
+        phone: "0123456789",
+        description: "Testing",
       });
       try {
         doc.render();
       } catch (error) {
-        function replaceErrors(key, value) {
-          if (value instanceof Error) {
-            return Object.getOwnPropertyNames(value).reduce(function (
-              error,
-              key
-            ) {
-              error[key] = value[key];
-              return error;
-            },
-            {});
-          }
-          return value;
-        }
         console.log(JSON.stringify({ error: error }, replaceErrors));
 
         if (error.properties && error.properties.errors instanceof Array) {
@@ -57,14 +58,12 @@ const generateDocument = () => {
         }
         throw error;
       }
-      console.log("aaa");
       let out = doc.getZip().generate({
         type: "blob",
         mimeType:
           "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
       });
       saveAs(out, "output.docx");
-      console.log("aaa2");
     }
   );
 };
