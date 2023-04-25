@@ -8,7 +8,7 @@ import useKonami from "react-use-konami";
 import {useState} from "react";
 import Image from "next/image";
 
-
+var count = 2;
 
 const Layout = ({ children }) => {
     const [isActive, setActive] = useState("false");
@@ -16,8 +16,15 @@ const Layout = ({ children }) => {
     useKonami(() => {
         // @ts-ignore
         setActive(isActive => !isActive);
-        const audio = new Audio("https://res.cloudinary.com/dtqhs8nvm/video/upload/v1682450542/kaleb_a3zfyp.mp3");
-        audio.play();
+        if (count % 2 == 0) {
+            const audio = new Audio("https://res.cloudinary.com/dtqhs8nvm/video/upload/v1682451612/rope_f2k4gy.mp3");
+            audio.play();
+            console.log(count)
+        }
+        else {
+            console.log(count)
+        }
+        count++;
     });
   return (
     <>
