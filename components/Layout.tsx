@@ -4,8 +4,19 @@ import Explorer from '../components/Explorer';
 import Bottombar from '../components/Bottombar';
 import Tabsbar from './Tabsbar';
 import styles from '../styles/Layout.module.css';
+import useKonami from "react-use-konami";
+import {useState} from "react";
+import Image from "next/image";
 
 const Layout = ({ children }) => {
+    const [isActive, setActive] = useState("false");
+
+    useKonami(() => {
+        // @ts-ignore
+        setActive(isActive => !isActive)
+    });
+
+
   return (
     <>
       <Titlebar />
@@ -16,6 +27,7 @@ const Layout = ({ children }) => {
           <Tabsbar />
           <main className={styles.content}>{children}</main>
         </div>
+          <Image className={isActive ? "hide" : null} src={"/../public/kys.gif"} alt={"hehe"} width={1000} height={1000}/>
       </div>
       <Bottombar />
     </>
