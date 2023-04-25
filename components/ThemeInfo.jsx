@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import styles from '../styles/ThemeInfo.module.css';
-import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
 
 const ThemeInfo = ({ icon, name, publisher, theme }) => {
   const setTheme = (theme) => {
@@ -9,7 +8,7 @@ const ThemeInfo = ({ icon, name, publisher, theme }) => {
   };
 
   return (
-      <FadeIn>
+      <>
         <div className={styles.container}>
           <Image src={icon} alt={name} height={100} width={100} />
           <div className={styles.info}>
@@ -20,7 +19,7 @@ const ThemeInfo = ({ icon, name, publisher, theme }) => {
             <button onClick={() => setTheme(theme)}>Set Color Theme</button>
           </div>
         </div>
-      </FadeIn>
+      </>
   );
 };
 
