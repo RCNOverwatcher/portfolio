@@ -6,7 +6,7 @@ import styles from "../styles/Explorer.module.css";
 import { useHotkeys } from "react-hotkeys-hook";
 
 function toggleSidebar() {
-  var x = document.getElementById("sidebar");
+  let x = document.getElementById("sidebar");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
