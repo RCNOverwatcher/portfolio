@@ -32,7 +32,7 @@ const explorerItems = [
   },
   {
     name: "projects.js",
-    path: "/projects",
+    path: "/personal",
     icon: "js_icon.svg",
   },
   {
@@ -45,12 +45,12 @@ const explorerItems = [
     items: [
       {
         name: "pointercrate.js",
-        path: "/projects/pointercrate",
+        path: "/personal/pointercrate",
         icon: "demon.svg",
       },
       {
         name: "raspberry-pygame.py",
-        path: "/projects/raspberry-pygame",
+        path: "/personal/raspberry-pygame",
         icon: "python_icon.svg",
       },
     ],

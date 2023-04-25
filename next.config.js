@@ -32,7 +32,7 @@ module.exports = withMDX({
         destination: '/',
       },
       {
-      source: '/projects',
+      source: '/personal',
       destination: '/',
       },
       {
