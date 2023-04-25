@@ -21,7 +21,7 @@ const sidebarTopItems = [
   },
   {
     Icon: CodeIcon,
-    path: '/personal',
+    path: '/projects',
   },
   {
     Icon: MailIcon,
