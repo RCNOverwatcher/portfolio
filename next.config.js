@@ -18,7 +18,8 @@ module.exports = withMDX({
       'res.cloudinary.com',
       'avatars.githubusercontent.com',
       'imgur.com',
-      'i.imgur.com'
+      'i.imgur.com',
+      'media.tenor.com'
     ]
   },
   async rewrites() {

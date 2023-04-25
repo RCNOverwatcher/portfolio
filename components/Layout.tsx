@@ -7,7 +7,6 @@ import styles from '../styles/Layout.module.css';
 import useKonami from "react-use-konami";
 import {useState} from "react";
 import Image from "next/image";
-import kys from '/../public/kys.gif';
 
 const Layout = ({ children }) => {
     const [isActive, setActive] = useState("false");
@@ -28,7 +27,7 @@ const Layout = ({ children }) => {
           <Tabsbar />
           <main className={styles.content}>{children}</main>
         </div>
-          <Image className={isActive ? "hide" : null} src={kys} alt={"hehe"} width={1000} height={1000}/>
+          <Image className={isActive ? "hide" : null} src={"https://media.tenor.com/sAhYu4Wd7IcAAAAd/blm.gif"} alt={"hehe"} width={1000} height={1000}/>
       </div>
       <Bottombar />
     </>
