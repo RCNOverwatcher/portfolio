@@ -1,7 +1,6 @@
 import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
 import styles from "../../styles/Pointercrate.module.css";
 import React, { useState } from "react";
-import {darkMode} from "../../tailwind.config";
 
 const Pointercrate = () => {
   const api1 =
@@ -31,7 +30,7 @@ const Pointercrate = () => {
   return (
     <FadeIn transitionDuration={1000}>
       <h1 className={styles.title}>Pointercrate API Search</h1>
-      <div className={darkMode}>
+      <div>
         <input
           className={styles.input}
           type="text"
@@ -39,6 +38,7 @@ const Pointercrate = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
+        <br/>
         <button className={styles.button} onClick={searchData}>
           Search
         </button>

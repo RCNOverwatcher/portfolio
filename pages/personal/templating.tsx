@@ -86,4 +86,11 @@ const Templating = () => (
   </div>
 );
 
+export async function getStaticProps() {
+    return {
+        props: { title: "Templating"},
+        revalidate: 10,
+};
+}
+
 export default Templating;
