@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     useKonami(() => {
         // @ts-ignore
         setActive(isActive => !isActive);
-        const audio = new Audio("https://res.cloudinary.com/dtqhs8nvm/video/upload/v1682450542/kaleb_a3zfyp.mp3");
+        const audio = new Audio("https://res.cloudinary.com/dtqhs8nvm/video/upload/v1682451612/rope_f2k4gy.mp3");
         audio.play();
     });
   return (
