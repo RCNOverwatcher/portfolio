@@ -1,14 +1,14 @@
 const { Configuration, OpenAIApi } = require("openai");
-import store from "store2"
-
-let api_key = store.get("api_key")
-
-const configuration = new Configuration({
-  apiKey: api_key,
-});
-const openai = new OpenAIApi(configuration);
+import store from "store2";
 
 export const celebrities = async (year) => {
+  let api_key = store.get("api_key");
+
+  const configuration = new Configuration({
+    apiKey: api_key,
+  });
+  const openai = new OpenAIApi(configuration);
+
   const question = "Give me 6 people who were born in " + year + ".";
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
@@ -20,7 +20,7 @@ export const celebrities = async (year) => {
       },
       { role: "user", content: question },
     ],
-    temperature: 1,
+    temperature: 0,
   });
   let data = completion.data.choices[0].message.content;
 
@@ -28,6 +28,13 @@ export const celebrities = async (year) => {
 };
 
 export const movies = async (year) => {
+  let api_key = store.get("api_key");
+
+  const configuration = new Configuration({
+    apiKey: api_key,
+  });
+  const openai = new OpenAIApi(configuration);
+
   const question = "Give me 6 movies that were released in " + year + ".";
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
@@ -39,7 +46,7 @@ export const movies = async (year) => {
       },
       { role: "user", content: question },
     ],
-    temperature: 1,
+    temperature: 0,
   });
   let data = completion.data.choices[0].message.content;
 
@@ -47,6 +54,13 @@ export const movies = async (year) => {
 };
 
 export const monarchs = async (year) => {
+  let api_key = store.get("api_key");
+
+  const configuration = new Configuration({
+    apiKey: api_key,
+  });
+  const openai = new OpenAIApi(configuration);
+
   const question = "Give me the monarch reigning in " + year + ".";
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
@@ -58,14 +72,20 @@ export const monarchs = async (year) => {
       },
       { role: "user", content: question },
     ],
-    temperature: 1,
+    temperature: 0,
   });
-  let string = completion.data.choices[0].message.content;
-  string.slice(0, string.length - 1);
-  return string.slice(0, string.length - 1);
+  let data = completion.data.choices[0].message.content;
+  return data.slice(0, -1); // remove the period at the end of the string
 };
 
 export const books = async (year) => {
+  let api_key = store.get("api_key");
+
+  const configuration = new Configuration({
+    apiKey: api_key,
+  });
+  const openai = new OpenAIApi(configuration);
+
   const question =
     "Give me the titles of 6 books that were published in " +
     year +
@@ -80,10 +100,65 @@ export const books = async (year) => {
       },
       { role: "user", content: question },
     ],
-    temperature: 1,
+    temperature: 0,
   });
   let data = completion.data.choices[0].message.content;
   console.log(data);
 
   return data.split(", ");
 };
+
+export const worldPopulation = async (year) => {
+  let api_key = store.get("api_key");
+
+  const configuration = new Configuration({
+    apiKey: api_key,
+  });
+  const openai = new OpenAIApi(configuration);
+
+  const question =
+      "What was the world population in " + year + ". Give a single number, such as '7 billion'.";
+  const completion = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: "system",
+        content:
+            "Act like an API. Only provide the required answer. Do not produce any additional dialogue. If responding with a list of values, give each value seperated by a comma.",
+      },
+      { role: "user", content: question },
+    ],
+    temperature: 0,
+  });
+  let data = completion.data.choices[0].message.content;
+
+  return data.slice(0, -1); // remove the period at the end of the string
+};
+
+export const UKPopulation = async (year) => {
+  let api_key = store.get("api_key");
+
+  const configuration = new Configuration({
+    apiKey: api_key,
+  });
+  const openai = new OpenAIApi(configuration);
+
+  const question =
+      "What was the UK's population in " + year + ". Give a single number, such as '7 billion'.";
+  const completion = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: [
+      {
+        role: "system",
+        content:
+            "Act like an API. Only provide the required answer. Do not produce any additional dialogue. If responding with a list of values, give each value seperated by a comma.",
+      },
+      { role: "user", content: question },
+    ],
+    temperature: 0,
+  });
+  let data = completion.data.choices[0].message.content;
+
+  return data.slice(0, -1); // remove the period at the end of the string
+};
+

@@ -5,8 +5,15 @@ import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
 import { saveAs } from "file-saver";
 import { getConfig } from "../api/templating/configuration";
-const data = require('../api/templating/config.json');
-import { monarchs, movies, celebrities, books } from "../api/templating/generateInfo";
+const data = require("../api/templating/config.json");
+import {
+  monarchs,
+  movies,
+  celebrities,
+  books,
+  worldPopulation,
+  UKPopulation,
+} from "../api/templating/generateInfo";
 
 let PizZipUtils = null;
 if (typeof window !== "undefined") {
@@ -14,12 +21,14 @@ if (typeof window !== "undefined") {
     PizZipUtils = r;
   });
 }
-
-if (typeof window === 'object') {
-    const api_key = document.getElementById("api_key");
-    store("api_key", api_key)
+function storeAPIKey() {
+  if (typeof window === "object") {
+    const input = document.getElementById("api_key") as HTMLInputElement | null;
+    const api_key = input.value;
+    console.log(api_key)
+    store("api_key", api_key);
+  }
 }
-
 function replaceErrors(key, value) {
   if (value instanceof Error) {
     return Object.getOwnPropertyNames(value).reduce(function (error, key) {
@@ -34,12 +43,14 @@ function loadFile(url, callback) {
   PizZipUtils.getBinaryContent(url, callback);
 }
 
-async function generateDocument(){
+async function generateDocument() {
   const templateConfig = getConfig();
   const monarch = await monarchs(data.config.year);
   const movieList = await movies(data.config.year);
   const celebrityList = await celebrities(data.config.year);
   const bookList = await books(data.config.year);
+  const worldPop = await worldPopulation(data.config.year);
+  const UKPop = await UKPopulation(data.config.year);
 
   loadFile(
     "https://res.cloudinary.com/dtqhs8nvm/raw/upload/v1682604019/template_fnwyst.docx",
@@ -68,6 +79,8 @@ async function generateDocument(){
         movie3: movieList[2],
         movie4: movieList[3],
         movie5: movieList[4],
+        world_pop: worldPop,
+        uk_pop: UKPop,
       });
       try {
         doc.render();
@@ -107,8 +120,13 @@ const Templating = () => (
       <button onClick={generateDocument} className={styles.button}>
         Generate document
       </button>
-        <input name="API Key" type="text" id="api_key"/>
     </div>
+    <br />
+    <br />
+    <input name="API Key" type="text" id="api_key" />
+    <button onClick={storeAPIKey} className={styles.button}>
+      Store API Key
+    </button>
   </div>
 );
 
