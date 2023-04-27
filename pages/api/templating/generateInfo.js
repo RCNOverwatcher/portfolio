@@ -105,10 +105,8 @@ export const books = async (year) => {
   let data = completion.data.choices[0].message.content;
   let bookdata1 = data.replace(/['"]+/g, "")
   console.log(bookdata1)
-  let bookdata2 = bookdata1.split(", ");
-  console.log(bookdata2)
-  console.log(bookdata2.array.sort((a, b) => a.length - b.length))
-  return bookdata2.array.sort((a, b) => a.length - b.length);
+  console.log(bookdata1.array.sort((a, b) => a.length - b.length))
+  return bookdata1.split(", ");
 };
 
 export const worldPopulation = async (year) => {
