@@ -104,8 +104,6 @@ export const books = async (year) => {
   });
   let data = completion.data.choices[0].message.content;
   let bookdata1 = data.replace(/['"]+/g, "")
-  console.log(bookdata1)
-  console.log(bookdata1.array.sort((a, b) => a.length - b.length))
   return bookdata1.split(", ");
 };
 

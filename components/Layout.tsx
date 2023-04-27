@@ -19,10 +19,6 @@ const Layout = ({ children }) => {
         if (count % 2 == 0) {
             const audio = new Audio("https://res.cloudinary.com/dtqhs8nvm/video/upload/v1682450542/kaleb_a3zfyp.mp3");
             audio.play();
-            console.log(count)
-        }
-        else {
-            console.log(count)
         }
         count++;
     });
