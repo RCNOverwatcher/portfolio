@@ -2,7 +2,6 @@ import { Analytics } from "@vercel/analytics/react";
 import Link from "next/link";
 import styles from "../styles/HomePage.module.css";
 import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
-import Image from "next/image";
 
 export default function HomePage() {
 
@@ -24,7 +23,6 @@ export default function HomePage() {
               <Link href="/contact">
                 <button className={styles.outlined}>Contact Me</button>
               </Link>
-              <Image className={"hide"} src={"/../public/rcnLogo.png"} alt={"haha"} width={300} height={300}/>
             </div>
           </div>
         </div>

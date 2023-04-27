@@ -3,6 +3,10 @@ import React from "react";
 import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
 import { saveAs } from "file-saver";
+import { getConfig } from "../api/templating/configuration";
+const data = require('../api/templating/config.json');
+import { monarchs, movies, celebrities, books } from "../api/templating/generateInfo";
+
 let PizZipUtils = null;
 if (typeof window !== "undefined") {
   import("pizzip/utils/index.js").then(function (r) {
@@ -11,26 +15,28 @@ if (typeof window !== "undefined") {
 }
 
 function replaceErrors(key, value) {
-    if (value instanceof Error) {
-        return Object.getOwnPropertyNames(value).reduce(function (
-                error,
-                key
-            ) {
-                error[key] = value[key];
-                return error;
-            },
-            {});
-    }
-    return value;
+  if (value instanceof Error) {
+    return Object.getOwnPropertyNames(value).reduce(function (error, key) {
+      error[key] = value[key];
+      return error;
+    }, {});
+  }
+  return value;
 }
 
 function loadFile(url, callback) {
   PizZipUtils.getBinaryContent(url, callback);
 }
 
-const generateDocument = () => {
+async function generateDocument(){
+  const templateConfig = getConfig();
+  const monarch = await monarchs(data.config.year);
+  const movieList = await movies(data.config.year);
+  const celebrityList = await celebrities(data.config.year);
+  const bookList = await books(data.config.year);
+
   loadFile(
-    "https://docxtemplater.com/tag-example.docx",
+    "https://res.cloudinary.com/dtqhs8nvm/raw/upload/v1682604019/template_fnwyst.docx",
     function (error, content) {
       if (error) {
         throw error;
@@ -38,10 +44,24 @@ const generateDocument = () => {
       let zip = new PizZip(content);
       let doc = new Docxtemplater().loadZip(zip);
       doc.setData({
-        first_name: "Jacob",
-        last_name: "Wiltshire",
-        phone: "0123456789",
-        description: "Testing",
+        years_ago: 2023 - templateConfig.config.year,
+        year: templateConfig.config.year,
+        monarch: monarch,
+        book1: bookList[0],
+        book2: bookList[1],
+        book3: bookList[2],
+        book4: bookList[3],
+        book5: bookList[4],
+        celebrity1: celebrityList[0],
+        celebrity2: celebrityList[1],
+        celebrity3: celebrityList[2],
+        celebrity4: celebrityList[3],
+        celebrity5: celebrityList[4],
+        movie1: movieList[0],
+        movie2: movieList[1],
+        movie3: movieList[2],
+        movie4: movieList[3],
+        movie5: movieList[4],
       });
       try {
         doc.render();
@@ -66,13 +86,13 @@ const generateDocument = () => {
       saveAs(out, "output.docx");
     }
   );
-};
+}
 
 const Templating = () => (
   <div className="mt-8 max-w-xl mx-auto px-8">
     <h1 className="text-center">
       <span className="block text-xl text-gray-600 leading-tight">
-        Templating Utility with GPT-4
+        Templating Utility with GPT-3
       </span>
     </h1>
     <br />
@@ -86,10 +106,11 @@ const Templating = () => (
 );
 
 export async function getStaticProps() {
-    return {
-        props: { title: "Templating"},
-        revalidate: 10,
-};
+  const templateConfig = getConfig();
+  return {
+    props: { title: "Templating", templateConfig },
+    revalidate: 10,
+  };
 }
 
 export default Templating;

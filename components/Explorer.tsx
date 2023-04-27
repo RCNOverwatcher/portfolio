@@ -32,7 +32,7 @@ const explorerItems = [
   },
   {
     name: "projects.js",
-    path: "/personal",
+    path: "/projects",
     icon: "js_icon.svg",
   },
   {

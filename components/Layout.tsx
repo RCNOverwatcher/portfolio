@@ -36,7 +36,7 @@ const Layout = ({ children }) => {
           <Tabsbar />
           <main className={styles.content}>{children}</main>
         </div>
-          <Image className={isActive ? "hide" : null} src={"https://res.cloudinary.com/dtqhs8nvm/image/upload/v1682447998/kys_kvq9wm.gif"} alt={"hehe"} width={1000} height={1000}/>
+          <Image className={isActive ? "hidekys" : null} src={"https://res.cloudinary.com/dtqhs8nvm/image/upload/v1682447998/kys_kvq9wm.gif"} alt={"hehe"} width={1000} height={1000}/>
       </div>
       <Bottombar />
     </>
