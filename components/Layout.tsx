@@ -8,7 +8,6 @@ import useKonami from "react-use-konami";
 import {useState} from "react";
 import Image from "next/image";
 
-var count = 2;
 
 const Layout = ({ children }) => {
     const [isActive, setActive] = useState("false");
@@ -16,11 +15,12 @@ const Layout = ({ children }) => {
     useKonami(() => {
         // @ts-ignore
         setActive(isActive => !isActive);
-        if (count % 2 == 0) {
-            const audio = new Audio("https://res.cloudinary.com/dtqhs8nvm/video/upload/v1682450542/kaleb_a3zfyp.mp3");
-            audio.play();
-        }
-        count++;
+    });
+    useKonami(() => {
+        const kalebExposal = new Audio("https://res.cloudinary.com/dtqhs8nvm/video/upload/v1682450542/kaleb_a3zfyp.mp3");
+        kalebExposal.play();
+    }, {
+        code: ['k', 'a', 'l', 'e', 'b'],
     });
   return (
     <>
