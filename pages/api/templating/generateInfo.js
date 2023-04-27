@@ -1,7 +1,10 @@
 const { Configuration, OpenAIApi } = require("openai");
+import store from "store2"
+
+let api_key = store.get("api_key")
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: api_key,
 });
 const openai = new OpenAIApi(configuration);
 

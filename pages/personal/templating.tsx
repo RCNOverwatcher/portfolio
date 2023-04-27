@@ -1,5 +1,6 @@
 import styles from "../../styles/Templating.module.css";
 import React from "react";
+import store from "store2";
 import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
 import { saveAs } from "file-saver";
@@ -12,6 +13,11 @@ if (typeof window !== "undefined") {
   import("pizzip/utils/index.js").then(function (r) {
     PizZipUtils = r;
   });
+}
+
+if (typeof window === 'object') {
+    const api_key = document.getElementById("api_key");
+    store("api_key", api_key)
 }
 
 function replaceErrors(key, value) {
@@ -101,6 +107,7 @@ const Templating = () => (
       <button onClick={generateDocument} className={styles.button}>
         Generate document
       </button>
+        <input name="API Key" type="text" id="api_key"/>
     </div>
   </div>
 );
