@@ -96,16 +96,16 @@ export const books = async (year) => {
       {
         role: "system",
         content:
-          "Act like an API. Only provide the required answer. Do not produce any additional dialogue. If responding with a list of values, give each value seperated by a comma.",
+          "Act like an API. Only provide the required answer. Do not produce any additional dialogue. If responding with a list of values, give each value seperated by a comma, not in a numbered list.",
       },
       { role: "user", content: question },
     ],
     temperature: 0,
   });
   let data = completion.data.choices[0].message.content;
-  console.log(data);
+  let bookdata = data.replace(/['"]+/g, "").split(", ");
 
-  return data.split(", ");
+  return bookdata.array.sort((a, b) => a.length - b.length);
 };
 
 export const worldPopulation = async (year) => {
@@ -117,14 +117,16 @@ export const worldPopulation = async (year) => {
   const openai = new OpenAIApi(configuration);
 
   const question =
-      "What was the world population in " + year + ". Give a single number, such as '7 billion'.";
+    "What was the world population in " +
+    year +
+    ". Give a single number, such as '7 billion'.";
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [
       {
         role: "system",
         content:
-            "Act like an API. Only provide the required answer. Do not produce any additional dialogue. If responding with a list of values, give each value seperated by a comma.",
+          "Act like an API. Only provide the required answer. Do not produce any additional dialogue. If responding with a list of values, give each value seperated by a comma.",
       },
       { role: "user", content: question },
     ],
@@ -144,14 +146,16 @@ export const UKPopulation = async (year) => {
   const openai = new OpenAIApi(configuration);
 
   const question =
-      "What was the UK's population in " + year + ". Give a single number, such as '7 billion'.";
+    "What was the UK's population in " +
+    year +
+    ". Give a single number, such as '7 billion'.";
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [
       {
         role: "system",
         content:
-            "Act like an API. Only provide the required answer. Do not produce any additional dialogue. If responding with a list of values, give each value seperated by a comma.",
+          "Act like an API. Only provide the required answer. Do not produce any additional dialogue. If responding with a list of values, give each value seperated by a comma.",
       },
       { role: "user", content: question },
     ],
@@ -161,4 +165,3 @@ export const UKPopulation = async (year) => {
 
   return data.slice(0, -1); // remove the period at the end of the string
 };
-

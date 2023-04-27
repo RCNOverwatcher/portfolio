@@ -4,8 +4,6 @@ import store from "store2";
 import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
 import { saveAs } from "file-saver";
-import { getConfig } from "../api/templating/configuration";
-const data = require("../api/templating/config.json");
 import {
   monarchs,
   movies,
@@ -21,14 +19,22 @@ if (typeof window !== "undefined") {
     PizZipUtils = r;
   });
 }
+
 function storeAPIKey() {
   if (typeof window === "object") {
     const input = document.getElementById("api_key") as HTMLInputElement | null;
     const api_key = input.value;
-    console.log(api_key)
     store("api_key", api_key);
   }
 }
+function storeYear() {
+    if (typeof window === "object") {
+        const input = document.getElementById("year") as HTMLInputElement | null;
+        const year = input.value;
+        store("year", year);
+    }
+}
+
 function replaceErrors(key, value) {
   if (value instanceof Error) {
     return Object.getOwnPropertyNames(value).reduce(function (error, key) {
@@ -44,16 +50,15 @@ function loadFile(url, callback) {
 }
 
 async function generateDocument() {
-  const templateConfig = getConfig();
-  const monarch = await monarchs(data.config.year);
-  const movieList = await movies(data.config.year);
-  const celebrityList = await celebrities(data.config.year);
-  const bookList = await books(data.config.year);
-  const worldPop = await worldPopulation(data.config.year);
-  const UKPop = await UKPopulation(data.config.year);
+  const monarch = await monarchs(store.get("year"));
+  const movieList = await movies(store.get("year"));
+  const celebrityList = await celebrities(store.get("year"));
+  const bookList = await books(store.get("year"));
+  const worldPop = await worldPopulation(store.get("year"));
+  const UKPop = await UKPopulation(store.get("year"));
 
   loadFile(
-    "https://res.cloudinary.com/dtqhs8nvm/raw/upload/v1682604019/template_fnwyst.docx",
+    "https://res.cloudinary.com/dtqhs8nvm/raw/upload/v1682614413/template_gf7gzb.docx",
     function (error, content) {
       if (error) {
         throw error;
@@ -61,8 +66,8 @@ async function generateDocument() {
       let zip = new PizZip(content);
       let doc = new Docxtemplater().loadZip(zip);
       doc.setData({
-        years_ago: 2023 - templateConfig.config.year,
-        year: templateConfig.config.year,
+        years_ago: 2023 - store.get("year"),
+        year: store.get("year"),
         monarch: monarch,
         book1: bookList[0],
         book2: bookList[1],
@@ -116,24 +121,34 @@ const Templating = () => (
     </h1>
     <br />
     <br />
-    <div className="mt-12 text-center">
-      <button onClick={generateDocument} className={styles.button}>
-        Generate document
-      </button>
-    </div>
+      <div>
+          <input name="API Key" type="text" id="api_key" />
+          <button onClick={storeAPIKey} className={styles.button}>
+              Store OpenAI API Key
+          </button>
+      </div>
+        <br />
+        <br />
+      <div>
+          <input name="Year" type="text" id="year" />
+
+          <button onClick={storeYear} className={styles.button}>
+              Store Year
+          </button>
+      </div>
     <br />
     <br />
-    <input name="API Key" type="text" id="api_key" />
-    <button onClick={storeAPIKey} className={styles.button}>
-      Store API Key
-    </button>
+      <div className="mt-12 text-center">
+          <button onClick={generateDocument} className={styles.button}>
+              Generate document
+          </button>
+      </div>
   </div>
 );
 
 export async function getStaticProps() {
-  const templateConfig = getConfig();
   return {
-    props: { title: "Templating", templateConfig },
+    props: { title: "Templating" },
     revalidate: 10,
   };
 }
