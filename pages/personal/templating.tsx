@@ -58,7 +58,7 @@ async function generateDocument() {
   const UKPop = await UKPopulation(store.get("year"));
 
   loadFile(
-    "https://res.cloudinary.com/dtqhs8nvm/raw/upload/v1682614413/template_gf7gzb.docx",
+    "https://res.cloudinary.com/dtqhs8nvm/raw/upload/v1682679318/template.docx",
     function (error, content) {
       if (error) {
         throw error;
