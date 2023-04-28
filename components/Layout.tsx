@@ -23,27 +23,27 @@ const Layout = ({ children }) => {
     }
   );
 
-    useKonami(
-        () => {
-            // @ts-ignore
-            setActive((isActive) => !isActive);
-        },
-        {
-            code: [
-                "ArrowUp",
-                "ArrowUp",
-                "ArrowDown",
-                "ArrowDown",
-                "ArrowLeft",
-                "ArrowRight",
-                "ArrowLeft",
-                "ArrowRight",
-                "b",
-                "a",
-                "Enter",
-            ],
-        }
-    );
+  useKonami(
+    () => {
+      // @ts-ignore
+      setActive((isActive) => !isActive);
+    },
+    {
+      code: [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+        "Enter",
+      ],
+    }
+  );
 
   return (
     <>

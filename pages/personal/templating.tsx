@@ -28,11 +28,11 @@ function storeAPIKey() {
   }
 }
 function storeYear() {
-    if (typeof window === "object") {
-        const input = document.getElementById("year") as HTMLInputElement | null;
-        const year = input.value;
-        store("year", year);
-    }
+  if (typeof window === "object") {
+    const input = document.getElementById("year") as HTMLInputElement | null;
+    const year = input.value;
+    store("year", year);
+  }
 }
 
 function replaceErrors(key, value) {
@@ -121,28 +121,28 @@ const Templating = () => (
     </h1>
     <br />
     <br />
-      <div>
-          <input name="API Key" type="text" id="api_key" />
-          <button onClick={storeAPIKey} className={styles.button}>
-              Store OpenAI API Key
-          </button>
-      </div>
-        <br />
-        <br />
-      <div>
-          <input name="Year" type="text" id="year" />
+    <div>
+      <input name="API Key" type="text" id="api_key" />
+      <button onClick={storeAPIKey} className={styles.button}>
+        Store OpenAI API Key
+      </button>
+    </div>
+    <br />
+    <br />
+    <div>
+      <input name="Year" type="text" id="year" />
 
-          <button onClick={storeYear} className={styles.button}>
-              Store Year
-          </button>
-      </div>
+      <button onClick={storeYear} className={styles.button}>
+        Store Year
+      </button>
+    </div>
     <br />
     <br />
-      <div className="mt-12 text-center">
-          <button onClick={generateDocument} className={styles.button}>
-              Generate document
-          </button>
-      </div>
+    <div className="mt-12 text-center">
+      <button onClick={generateDocument} className={styles.button}>
+        Generate document
+      </button>
+    </div>
   </div>
 );
 

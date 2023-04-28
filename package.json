@@ -10,9 +10,6 @@
   "dependencies": {
     "@cloudinary/react": "^1.11.2",
     "@cloudinary/url-gen": "^1.10.0",
-    "@mdx-js/loader": "^2.3.0",
-    "@mdx-js/react": "^2.3.0",
-    "@next/mdx": "^13.3.1",
     "@rcnoverwatcher/react-fade-in-react-18": "github:RCNOverwatcher/react-fade-in",
     "@vercel/analytics": "^1.0.0",
     "cloudinary": "^1.36.2",
@@ -20,17 +17,21 @@
     "docxtemplater": "^3.37.2",
     "file-saver": "^2.0.5",
     "next": "^13.3.1",
+    "nprogress": "^0.2.0",
     "openai": "^3.2.1",
     "pizzip": "^3.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-github-calendar": "^3.2.2",
     "react-hotkeys-hook": "^4.4.0",
+    "react-spinners": "^0.13.8",
     "react-spotify-embed": "^2.0.3",
     "react-use-konami": "^1.1.0",
     "store2": "^2.14.2"
   },
   "devDependencies": {
+    "@types/node": "18.16.2",
+    "@types/react": "18.2.0",
     "prettier": "^2.8.8",
     "tailwindcss": "^2.2.2",
     "typescript": "5.0.4"
