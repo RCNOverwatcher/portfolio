@@ -4,7 +4,6 @@ import styles from "../styles/HomePage.module.css";
 import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
 
 export default function HomePage() {
-
   return (
     <>
       <FadeIn transitionDuration={1000}>
@@ -31,7 +30,6 @@ export default function HomePage() {
     </>
   );
 }
-
 export async function getStaticProps() {
   return {
     props: { title: "Home" },

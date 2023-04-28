@@ -4,7 +4,6 @@ import "../styles/globals.css";
 import "../styles/themes.css";
 
 function MyApp({ Component, pageProps }) {
-
   return (
     <Layout>
       <Head title={`Jacob Wiltshire | ${pageProps.title}`} />

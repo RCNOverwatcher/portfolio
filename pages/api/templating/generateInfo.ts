@@ -103,7 +103,7 @@ export const books = async (year) => {
     temperature: 0,
   });
   let data = completion.data.choices[0].message.content;
-  let bookdata1 = data.replace(/['"]+/g, "")
+  let bookdata1 = data.replace(/['"]+/g, "");
   return bookdata1.split(", ");
 };
 

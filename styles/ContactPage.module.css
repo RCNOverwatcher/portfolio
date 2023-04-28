@@ -32,7 +32,7 @@
 
 .form input,
 .form textarea {
-  font-family: 'JetBrains Mono';
+  font-family: "JetBrains Mono", monospace;
   margin-bottom: 1.5rem;
   background: var(--article-bg);
   color: var(--text-color);

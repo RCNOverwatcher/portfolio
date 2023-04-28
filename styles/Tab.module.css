@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   border: 1px solid var(--tab-border);
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 0.9rem;
   cursor: pointer;
   vertical-align: middle;
@@ -27,6 +27,8 @@
   border-bottom: none;
 }
 
-.tab:hover, .tab:focus, .tab:active {
+.tab:hover,
+.tab:focus,
+.tab:active {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }

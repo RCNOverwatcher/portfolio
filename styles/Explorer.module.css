@@ -2,7 +2,7 @@
   background: var(--explorer-bg);
   width: 18vw;
   color: rgb(225, 228, 232);
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   border-right: 1px solid var(--explorer-border);
 }
 
@@ -86,10 +86,8 @@
   margin-left: 10px;
 }
 
-.folder{
-
+.folder {
 }
 
-.subItems{
-
+.subItems {
 }

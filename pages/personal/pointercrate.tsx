@@ -38,7 +38,7 @@ const Pointercrate = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <br/>
+        <br />
         <button className={styles.button} onClick={searchData}>
           Search
         </button>
