@@ -4,6 +4,7 @@ import RepoCard from "../components/RepoCard";
 import styles from "../styles/GithubPage.module.css";
 import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
 
+
 const GithubPage = ({ repos, user }) => {
   const theme = {
     level0: "#161B22",
@@ -78,7 +79,7 @@ export async function getStaticProps() {
 
   return {
     props: { title: "GitHub", repos, user },
-    revalidate: 10,
+    revalidate: 86400,
   };
 }
 
