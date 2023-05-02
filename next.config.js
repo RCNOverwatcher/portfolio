@@ -1,5 +1,4 @@
 module.exports = {
-  siteUrl: "https://jacobwiltshire.com",
   images: {
     domains: [
       "res.cloudinary.com",
