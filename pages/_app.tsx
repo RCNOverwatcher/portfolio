@@ -5,24 +5,26 @@ import Layout from "../components/Layout";
 import Head from "../components/Head";
 import "../styles/globals.css";
 import "../styles/themes.css";
+import NextProgressbarSpinner from "../components/ProgressBar";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }) {
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: dark,
-        variables: {
-          fontFamily: "Source Sans Pro, sans-serif",
-        },
-      }}
-      {...pageProps}
-    >
-      <Layout>
-        <Head title={`Jacob Wiltshire | ${pageProps.title}`} />
+      <ClerkProvider
+          appearance={{
+              baseTheme: dark,
+              variables: {
+                  fontFamily: "Source Sans Pro, sans-serif",
+              },
+          }}
+          {...pageProps}
+      >
+    <Layout>
+      <Head title={`Jacob Wiltshire | ${pageProps.title}`} />
+        <NextProgressbarSpinner/>
         <Component {...pageProps} />
-      </Layout>
-    </ClerkProvider>
+    </Layout>
+      </ClerkProvider>
   );
 }
 
-export default MyApp;
+export default App;
