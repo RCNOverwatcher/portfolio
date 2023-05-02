@@ -12,6 +12,7 @@ import {
   worldPopulation,
   UKPopulation,
 } from "../api/templating/generateInfo";
+import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
 
 let PizZipUtils = null;
 if (typeof window !== "undefined") {
@@ -113,36 +114,43 @@ async function generateDocument() {
 }
 
 const Templating = () => (
-  <div className="mt-8 max-w-xl mx-auto px-8">
-    <h1 className="text-center">
-      <span className="block text-xl text-gray-600 leading-tight">
-        Templating Utility with GPT-3
-      </span>
-    </h1>
-    <br />
-    <br />
-    <div>
-      <input name="API Key" type="text" id="api_key" />
-      <button onClick={storeAPIKey} className={styles.button}>
-        Store OpenAI API Key
-      </button>
-    </div>
-    <br />
-    <br />
-    <div>
-      <input name="Year" type="text" id="year" />
+  <div>
+    <SignedIn>
+      <div className="mt-8 max-w-xl mx-auto px-8">
+        <h1 className="text-center">
+          <span className="block text-xl text-gray-600 leading-tight">
+            Templating Utility with GPT-3
+          </span>
+        </h1>
+        <br />
+        <br />
+        <div>
+          <input name="API Key" type="text" id="api_key" />
+          <button onClick={storeAPIKey} className={styles.button}>
+            Store OpenAI API Key
+          </button>
+        </div>
+        <br />
+        <br />
+        <div>
+          <input name="Year" type="text" id="year" />
 
-      <button onClick={storeYear} className={styles.button}>
-        Store Year
-      </button>
-    </div>
-    <br />
-    <br />
-    <div className="mt-12 text-center">
-      <button onClick={generateDocument} className={styles.button}>
-        Generate document
-      </button>
-    </div>
+          <button onClick={storeYear} className={styles.button}>
+            Store Year
+          </button>
+        </div>
+        <br />
+        <br />
+        <div className="mt-12 text-center">
+          <button onClick={generateDocument} className={styles.button}>
+            Generate document
+          </button>
+        </div>
+      </div>
+    </SignedIn>
+    <SignedOut>
+      <RedirectToSignIn />
+    </SignedOut>
   </div>
 );
 
