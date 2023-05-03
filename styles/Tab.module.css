@@ -32,3 +32,9 @@
 .tab:active {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
+
+.link {
+  color: #2D5C9A;
+  background-color: transparent;
+  text-decoration: none;
+}

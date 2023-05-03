@@ -91,3 +91,9 @@
 
 .subItems {
 }
+
+.link {
+  color: #2D5C9A;
+  background-color: transparent;
+  text-decoration: none;
+}

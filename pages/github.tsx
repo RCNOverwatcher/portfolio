@@ -6,14 +6,6 @@ import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
 
 
 const GithubPage = ({ repos, user }) => {
-  const theme = {
-    level0: "#161B22",
-    level1: "#0e4429",
-    level2: "#006d32",
-    level3: "#26a641",
-    level4: "#39d353",
-  };
-
   return (
     <>
       <FadeIn transitionDuration={1000}>
@@ -43,7 +35,9 @@ const GithubPage = ({ repos, user }) => {
         <div className={styles.contributions}>
           <GitHubCalendar
             username={process.env.NEXT_PUBLIC_GITHUB_USERNAME}
-            theme={theme}
+            theme={{
+              dark: ["#161B22", "#0e4429", "#006d32", "#26a641", "#39d353"]
+            }}
             hideColorLegend
             hideMonthLabels
           />

@@ -51,6 +51,7 @@ const Pointercrate = () => {
                   href={`https://pointercrate.com/demonlist/${result.position}`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={styles.link}
                 >
                   {result.name} <em>({result.position})</em>
                 </a>

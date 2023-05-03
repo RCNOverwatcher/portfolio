@@ -113,7 +113,7 @@ const Explorer = () => {
                     }
                   >
                     {item.items.map((subItem) => (
-                      <Link href={subItem.path}>
+                      <Link href={subItem.path} className={styles.link}>
                         <div className={styles.file}>
                           <Image
                             src={`/${subItem.icon}`}
@@ -130,7 +130,7 @@ const Explorer = () => {
               );
             } else {
               return (
-                <Link href={item.path}>
+                <Link href={item.path} className={styles.link}>
                   <div className={styles.file}>
                     <Image
                       src={`/${item.icon}`}
