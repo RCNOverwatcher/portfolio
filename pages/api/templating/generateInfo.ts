@@ -1,7 +1,8 @@
 const { Configuration, OpenAIApi } = require("openai");
 import store from "store2";
 
-export const celebrities = async (year, model) => {
+export const celebrities = async (year: number, model: string) => {
+  document.getElementById("log").innerHTML = "Generating celebrities...";
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
@@ -27,7 +28,8 @@ export const celebrities = async (year, model) => {
   return data.split(", ");
 };
 
-export const movies = async (year, model) => {
+export const movies = async (year: number, model: string) => {
+  document.getElementById("log").innerHTML = "Generating movies...";
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
@@ -53,7 +55,8 @@ export const movies = async (year, model) => {
   return data.split(", ");
 };
 
-export const monarchs = async (year, model) => {
+export const monarchs = async (year: number, model: string) => {
+  document.getElementById("log").innerHTML = "Generating monarchs...";
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
@@ -79,13 +82,13 @@ export const monarchs = async (year, model) => {
 };
 
 export const books = async (year, model) => {
+  document.getElementById("log").innerHTML = "Generating books...";
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
     apiKey: api_key,
   });
   const openai = new OpenAIApi(configuration);
-
   const question =
     "Give me the titles of 6 books that were published in " +
     year +
@@ -108,6 +111,7 @@ export const books = async (year, model) => {
 };
 
 export const worldPopulation = async (year, model) => {
+  document.getElementById("log").innerHTML = "Generating world population...";
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
@@ -137,13 +141,13 @@ export const worldPopulation = async (year, model) => {
 };
 
 export const UKPopulation = async (year, model) => {
+  document.getElementById("log").innerHTML = "Generating UK population...";
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
     apiKey: api_key,
   });
   const openai = new OpenAIApi(configuration);
-
   const question =
     "What was the UK's population in " +
     year +
@@ -162,5 +166,9 @@ export const UKPopulation = async (year, model) => {
   });
   let data = completion.data.choices[0].message.content;
 
-  return data.slice(0, -1); // remove the period at the end of the string
+  if (model == "gpt-4") {
+    return data;
+  } else {
+    return data.slice(0, -1); // remove the period at the end of the string (only produced from gpt-3)
+  }
 };

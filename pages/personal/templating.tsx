@@ -1,5 +1,5 @@
 import styles from "../../styles/Templating.module.css";
-import React from "react";
+import React, { useState } from "react";
 import store from "store2";
 import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
@@ -13,6 +13,7 @@ import {
   UKPopulation,
 } from "../api/templating/generateInfo";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
+import { PulseLoader } from "react-spinners";
 
 let PizZipUtils = null;
 if (typeof window !== "undefined") {
@@ -47,11 +48,11 @@ function replaceErrors(key, value) {
 }
 
 function useBasicGPT() {
-    store("model", "gpt-3.5-turbo");
+  store("model", "gpt-3.5-turbo");
 }
 
 function useAdvancedGPT() {
-    store("model", "gpt-4");
+  store("model", "gpt-4");
 }
 
 function loadFile(url, callback) {
@@ -61,7 +62,10 @@ function loadFile(url, callback) {
 async function generateDocument() {
   const monarch = await monarchs(store.get("year"), store.get("model"));
   const movieList = await movies(store.get("year"), store.get("model"));
-  const celebrityList = await celebrities(store.get("year"), store.get("model"));
+  const celebrityList = await celebrities(
+    store.get("year"),
+    store.get("model")
+  );
   const bookList = await books(store.get("year"), store.get("model"));
   const worldPop = await worldPopulation(store.get("year"), store.get("model"));
   const UKPop = await UKPopulation(store.get("year"), store.get("model"));
@@ -121,50 +125,73 @@ async function generateDocument() {
   );
 }
 
-const Templating = () => (
-  <div>
-    <SignedIn>
-      <div className="mt-8 max-w-xl mx-auto px-8">
-        <h1 className="text-center">
-          <span className="block text-xl text-gray-600 leading-tight">
-            GPT Templating Utility
-          </span>
-        </h1>
-        <div>
-          <input name="API Key" type="text" id="api_key" />
-          <button onClick={storeAPIKey} className={styles.button}>
-            Store OpenAI API Key
-          </button>
+const Templating = () => {
+  const [isSpinnerActive, setSpinnerActive] = useState(false);
+  async function produceDocument() {
+    setSpinnerActive(true);
+    generateDocument().then(function () {
+      document.getElementById("log").innerHTML = "Document created successfully";
+      setSpinnerActive(false);
+    });
+  }
+  return (
+    <div>
+      <SignedIn>
+        <div className="mt-8 max-w-xl mx-auto px-8">
+          <h1 className="text-center">
+            <span className="block text-xl text-gray-600 leading-tight">
+              GPT Templating Utility
+            </span>
+          </h1>
+          <div>
+            <input name="API Key" type="text" id="api_key" />
+            <button onClick={storeAPIKey} className={styles.button}>
+              Store OpenAI API Key
+            </button>
+          </div>
+          <div>
+            <input name="Year" type="text" id="year" />
+            <button onClick={storeYear} className={styles.button}>
+              Store Year
+            </button>
+          </div>
+          <br />
+          <div className={"-right-full"}>
+            <button onClick={useBasicGPT} className={styles.choiceButton}>
+              Use GPT 3.5 Turbo
+            </button>
+            <button onClick={useAdvancedGPT} className={styles.choiceButton}>
+              Use GPT 4
+            </button>
+          </div>
+          <br />
+          <div className="mt-12 text-center">
+            <button onClick={produceDocument} className={styles.button}>
+              Generate document
+            </button>
+            <PulseLoader
+              color={"#2D5C9A"}
+              loading={isSpinnerActive}
+              size={50}
+              cssOverride={{
+                display: "block",
+                margin: "20 auto",
+              }}
+              aria-label="Loading Spinner"
+              data-testid="loader"
+            />
+            <br/>
+            <br/>
+            <span id={"log"}></span>
+          </div>
         </div>
-        <div>
-          <input name="Year" type="text" id="year" />
-          <button onClick={storeYear} className={styles.button}>
-            Store Year
-          </button>
-        </div>
-        <br />
-        <div className={"-right-full"}>
-          <button onClick={useBasicGPT} className={styles.choiceButton} >
-            Use GPT 3.5 Turbo
-          </button>
-          <button onClick={useAdvancedGPT} className={styles.choiceButton}>
-            Use GPT 4
-          </button>
-        </div>
-        <br />
-        <div className="mt-12 text-center">
-          <button onClick={generateDocument} className={styles.button}>
-            Generate document
-          </button>
-        </div>
-      </div>
-    </SignedIn>
-    <SignedOut>
-      <RedirectToSignIn />
-    </SignedOut>
-  </div>
-);
-
+      </SignedIn>
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
+    </div>
+  );
+};
 export async function getStaticProps() {
   return {
     props: { title: "Templating" },
