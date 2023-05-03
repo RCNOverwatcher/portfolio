@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.16.4",
+    "@clerk/themes": "^1.6.3",
     "@rcnoverwatcher/react-fade-in-react-18": "github:RCNOverwatcher/react-fade-in",
     "@vercel/analytics": "^1.0.1",
     "core-js": "^3.30.1",
