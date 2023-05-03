@@ -1,7 +1,7 @@
 const { Configuration, OpenAIApi } = require("openai");
 import store from "store2";
 
-export const celebrities = async (year) => {
+export const celebrities = async (year, model) => {
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
@@ -11,7 +11,7 @@ export const celebrities = async (year) => {
 
   const question = "Give me 6 people who were born in " + year + ".";
   const completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
+    model: model,
     messages: [
       {
         role: "system",
@@ -27,7 +27,7 @@ export const celebrities = async (year) => {
   return data.split(", ");
 };
 
-export const movies = async (year) => {
+export const movies = async (year, model) => {
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
@@ -37,7 +37,7 @@ export const movies = async (year) => {
 
   const question = "Give me 6 movies that were released in " + year + ".";
   const completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
+    model: model,
     messages: [
       {
         role: "system",
@@ -53,7 +53,7 @@ export const movies = async (year) => {
   return data.split(", ");
 };
 
-export const monarchs = async (year) => {
+export const monarchs = async (year, model) => {
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
@@ -63,7 +63,7 @@ export const monarchs = async (year) => {
 
   const question = "Give me the monarch reigning in " + year + ".";
   const completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
+    model: model,
     messages: [
       {
         role: "system",
@@ -78,7 +78,7 @@ export const monarchs = async (year) => {
   return data.slice(0, -1); // remove the period at the end of the string
 };
 
-export const books = async (year) => {
+export const books = async (year, model) => {
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
@@ -91,7 +91,7 @@ export const books = async (year) => {
     year +
     ". Do not include the author names";
   const completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
+    model: model,
     messages: [
       {
         role: "system",
@@ -107,7 +107,7 @@ export const books = async (year) => {
   return bookdata1.split(", ");
 };
 
-export const worldPopulation = async (year) => {
+export const worldPopulation = async (year, model) => {
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
@@ -120,7 +120,7 @@ export const worldPopulation = async (year) => {
     year +
     ". Give a single number, such as '7 billion'.";
   const completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
+    model: model,
     messages: [
       {
         role: "system",
@@ -136,7 +136,7 @@ export const worldPopulation = async (year) => {
   return data.slice(0, -1); // remove the period at the end of the string
 };
 
-export const UKPopulation = async (year) => {
+export const UKPopulation = async (year, model) => {
   let api_key = store.get("api_key");
 
   const configuration = new Configuration({
@@ -149,7 +149,7 @@ export const UKPopulation = async (year) => {
     year +
     ". Give a single number, such as '7 billion'.";
   const completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
+    model: model,
     messages: [
       {
         role: "system",

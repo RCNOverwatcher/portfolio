@@ -46,17 +46,25 @@ function replaceErrors(key, value) {
   return value;
 }
 
+function useBasicGPT() {
+    store("model", "gpt-3.5-turbo");
+}
+
+function useAdvancedGPT() {
+    store("model", "gpt-4");
+}
+
 function loadFile(url, callback) {
   PizZipUtils.getBinaryContent(url, callback);
 }
 
 async function generateDocument() {
-  const monarch = await monarchs(store.get("year"));
-  const movieList = await movies(store.get("year"));
-  const celebrityList = await celebrities(store.get("year"));
-  const bookList = await books(store.get("year"));
-  const worldPop = await worldPopulation(store.get("year"));
-  const UKPop = await UKPopulation(store.get("year"));
+  const monarch = await monarchs(store.get("year"), store.get("model"));
+  const movieList = await movies(store.get("year"), store.get("model"));
+  const celebrityList = await celebrities(store.get("year"), store.get("model"));
+  const bookList = await books(store.get("year"), store.get("model"));
+  const worldPop = await worldPopulation(store.get("year"), store.get("model"));
+  const UKPop = await UKPopulation(store.get("year"), store.get("model"));
 
   loadFile(
     "https://res.cloudinary.com/dtqhs8nvm/raw/upload/v1682679318/template.docx",
@@ -119,27 +127,30 @@ const Templating = () => (
       <div className="mt-8 max-w-xl mx-auto px-8">
         <h1 className="text-center">
           <span className="block text-xl text-gray-600 leading-tight">
-            Templating Utility with GPT-3
+            GPT Templating Utility
           </span>
         </h1>
-        <br />
-        <br />
         <div>
           <input name="API Key" type="text" id="api_key" />
           <button onClick={storeAPIKey} className={styles.button}>
             Store OpenAI API Key
           </button>
         </div>
-        <br />
-        <br />
         <div>
           <input name="Year" type="text" id="year" />
-
           <button onClick={storeYear} className={styles.button}>
             Store Year
           </button>
         </div>
         <br />
+        <div className={"-right-full"}>
+          <button onClick={useBasicGPT} className={styles.choiceButton} >
+            Use GPT 3.5 Turbo
+          </button>
+          <button onClick={useAdvancedGPT} className={styles.choiceButton}>
+            Use GPT 4
+          </button>
+        </div>
         <br />
         <div className="mt-12 text-center">
           <button onClick={generateDocument} className={styles.button}>
