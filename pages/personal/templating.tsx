@@ -142,9 +142,9 @@ const Templating = () => {
   return (
     <div>
       <SignedIn>
-        <div className="mt-8 max-w-xl mx-auto px-8">
-          <h1 className="text-center">
-            <span className="block text-xl text-gray-600 leading-tight">
+        <div>
+          <h1>
+            <span>
               GPT Templating Utility
             </span>
           </h1>
@@ -161,7 +161,7 @@ const Templating = () => {
             </button>
           </div>
           <br />
-          <div className={"-right-full"}>
+          <div>
             <button onClick={useBasicGPT} className={styles.choiceButton}>
               Use GPT 3.5 Turbo
             </button>
@@ -170,7 +170,7 @@ const Templating = () => {
             </button>
           </div>
           <br />
-          <div className="mt-12 text-center">
+          <div>
             <button onClick={produceDocument} className={styles.button}>
               Generate document
             </button>
