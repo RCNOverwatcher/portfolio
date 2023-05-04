@@ -1,6 +1,6 @@
-import ContactCode from "../components/ContactCode";
-import styles from "../styles/ContactPage.module.css";
-import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
+import ContactCode from '../components/ContactCode';
+import styles from '../styles/ContactPage.module.css';
+import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';
 
 const ContactPage = () => {
   return (
@@ -17,7 +17,7 @@ const ContactPage = () => {
 
 export async function getStaticProps() {
   return {
-    props: { title: "Contact" },
+    props: { title: 'Contact' },
   };
 }
 

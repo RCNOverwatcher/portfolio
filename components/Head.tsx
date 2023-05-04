@@ -1,4 +1,4 @@
-import Head from "next/head";
+import Head from 'next/head';
 
 const CustomHead = ({ title }) => {
   return (
@@ -23,5 +23,5 @@ const CustomHead = ({ title }) => {
 export default CustomHead;
 
 CustomHead.defaultProps = {
-  title: "Jacob Wiltshire",
+  title: 'Jacob Wiltshire',
 };

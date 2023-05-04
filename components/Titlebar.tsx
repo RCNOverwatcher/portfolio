@@ -1,6 +1,6 @@
-import Image from "next/image";
-import styles from "../styles/Titlebar.module.css";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import Image from 'next/image';
+import styles from '../styles/Titlebar.module.css';
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 
 const Titlebar = () => {
   return (

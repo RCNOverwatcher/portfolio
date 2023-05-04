@@ -1,30 +1,30 @@
-import styles from "../styles/ContactCode.module.css";
+import styles from '../styles/ContactCode.module.css';
 
 const contactItems = [
   {
-    social: "website",
-    link: "jacobwiltshire.com",
-    href: "https://jacobwiltshire.com",
+    social: 'website',
+    link: 'jacobwiltshire.com',
+    href: 'https://jacobwiltshire.com',
   },
   {
-    social: "email",
-    link: "jacobjameswiltshire@protonmail.com",
-    href: "mailto:jacobjameswiltshire@protonmail.com",
+    social: 'email',
+    link: 'jacobjameswiltshire@protonmail.com',
+    href: 'mailto:jacobjameswiltshire@protonmail.com',
   },
   {
-    social: "github",
-    link: "RCNOverwatcher",
-    href: "https://github.com/RCNOverwatcher",
+    social: 'github',
+    link: 'RCNOverwatcher',
+    href: 'https://github.com/RCNOverwatcher',
   },
   {
-    social: "linkedin",
-    link: "jacobwiltshire",
-    href: "https://www.linkedin.com/in/jacob-wiltshire-44b154244/",
+    social: 'linkedin',
+    link: 'jacobwiltshire',
+    href: 'https://www.linkedin.com/in/jacob-wiltshire-44b154244/',
   },
   {
-    social: "discord",
-    link: "RCN#0001",
-    href: "https://large-type.com/#RCN%230001",
+    social: 'discord',
+    link: 'RCN#0001',
+    href: 'https://large-type.com/#RCN%230001',
   },
 ];
 
@@ -36,7 +36,7 @@ const ContactCode = () => {
       </p>
       {contactItems.slice(0, 8).map((item, index) => (
         <p className={styles.line} key={index}>
-          &nbsp;&nbsp;&nbsp;{item.social}:{" "}
+          &nbsp;&nbsp;&nbsp;{item.social}:{' '}
           <a href={item.href} target="_blank" rel="noopener">
             {item.link}
           </a>
@@ -45,7 +45,7 @@ const ContactCode = () => {
       ))}
       {contactItems.slice(5, contactItems.length).map((item, index) => (
         <p className={styles.line} key={index}>
-          &nbsp;&nbsp;{item.social}:{" "}
+          &nbsp;&nbsp;{item.social}:{' '}
           <a href={item.href} target="_blank" rel="noopener">
             {item.link}
           </a>

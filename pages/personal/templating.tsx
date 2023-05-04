@@ -1,9 +1,9 @@
-import styles from "../../styles/Templating.module.css";
-import React, { useState } from "react";
-import store from "store2";
-import Docxtemplater from "docxtemplater";
-import PizZip from "pizzip";
-import { saveAs } from "file-saver";
+import styles from '../../styles/Templating.module.css';
+import React, { useState } from 'react';
+import store from 'store2';
+import Docxtemplater from 'docxtemplater';
+import PizZip from 'pizzip';
+import { saveAs } from 'file-saver';
 import {
   monarchs,
   movies,
@@ -11,30 +11,30 @@ import {
   books,
   worldPopulation,
   UKPopulation,
-} from "../api/templating/generateInfo";
-import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
-import { PulseLoader } from "react-spinners";
-import catchErrors from "../api/templating/catchErrors";
+} from '../api/templating/generateInfo';
+import { RedirectToSignIn, SignedIn, SignedOut } from '@clerk/nextjs';
+import { PulseLoader } from 'react-spinners';
+import catchErrors from '../api/templating/catchErrors';
 
 let PizZipUtils = null;
-if (typeof window !== "undefined") {
-  import("pizzip/utils/index.js").then(function (r) {
+if (typeof window !== 'undefined') {
+  import('pizzip/utils/index.js').then(function (r) {
     PizZipUtils = r;
   });
 }
 
 function storeAPIKey() {
-  if (typeof window === "object") {
-    const input = document.getElementById("api_key") as HTMLInputElement | null;
+  if (typeof window === 'object') {
+    const input = document.getElementById('api_key') as HTMLInputElement | null;
     const api_key = input.value;
-    store("api_key", api_key);
+    store('api_key', api_key);
   }
 }
 function storeYear() {
-  if (typeof window === "object") {
-    const input = document.getElementById("year") as HTMLInputElement | null;
+  if (typeof window === 'object') {
+    const input = document.getElementById('year') as HTMLInputElement | null;
     const year = input.value;
-    store("year", year);
+    store('year', year);
   }
 }
 
@@ -49,11 +49,11 @@ function replaceErrors(key, value) {
 }
 
 function useBasicGPT() {
-  store("model", "gpt-3.5-turbo");
+  store('model', 'gpt-3.5-turbo');
 }
 
 function useAdvancedGPT() {
-  store("model", "gpt-4");
+  store('model', 'gpt-4');
 }
 
 function loadFile(url, callback) {
@@ -61,20 +61,20 @@ function loadFile(url, callback) {
 }
 
 async function generateDocument() {
-  const monarch = await monarchs(store.get("year"), store.get("model"));
-  const movieList = await movies(store.get("year"), store.get("model"));
+  const monarch = await monarchs(store.get('year'), store.get('model'));
+  const movieList = await movies(store.get('year'), store.get('model'));
   const celebrities = await celebrityList(
-    store.get("year"),
-    store.get("model")
+    store.get('year'),
+    store.get('model'),
   );
-  const bookList = await books(store.get("year"), store.get("model"));
-  const worldPop = await worldPopulation(store.get("year"), store.get("model"));
-  const UKPop = await UKPopulation(store.get("year"), store.get("model"));
+  const bookList = await books(store.get('year'), store.get('model'));
+  const worldPop = await worldPopulation(store.get('year'), store.get('model'));
+  const UKPop = await UKPopulation(store.get('year'), store.get('model'));
 
   catchErrors(monarch, movieList, celebrities, bookList, worldPop, UKPop);
 
   loadFile(
-    "https://res.cloudinary.com/dtqhs8nvm/raw/upload/v1682679318/template.docx",
+    'https://res.cloudinary.com/dtqhs8nvm/raw/upload/v1682679318/template.docx',
     function (error, content) {
       if (error) {
         throw error;
@@ -82,8 +82,8 @@ async function generateDocument() {
       let zip = new PizZip(content);
       let doc = new Docxtemplater().loadZip(zip);
       doc.setData({
-        years_ago: 2023 - store.get("year"),
-        year: store.get("year"),
+        years_ago: 2023 - store.get('year'),
+        year: store.get('year'),
         monarch: monarch,
         book1: bookList[0],
         book2: bookList[1],
@@ -113,19 +113,19 @@ async function generateDocument() {
             .map(function (error) {
               return error.properties.explanation;
             })
-            .join("\n");
-          console.log("errorMessages", errorMessages);
+            .join('\n');
+          console.log('errorMessages', errorMessages);
         }
-        document.getElementById("log").innerHTML = error;
+        document.getElementById('log').innerHTML = error;
         throw error;
       }
       let out = doc.getZip().generate({
-        type: "blob",
+        type: 'blob',
         mimeType:
-          "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
       });
-      saveAs(out, "output.docx");
-    }
+      saveAs(out, 'output.docx');
+    },
   );
 }
 
@@ -134,8 +134,8 @@ const Templating = () => {
   async function produceDocument() {
     setSpinnerActive(true);
     generateDocument().then(function () {
-      document.getElementById("log").innerHTML =
-        "Document created successfully";
+      document.getElementById('log').innerHTML =
+        'Document created successfully';
       setSpinnerActive(false);
     });
   }
@@ -144,9 +144,7 @@ const Templating = () => {
       <SignedIn>
         <div>
           <h1>
-            <span>
-              GPT Templating Utility
-            </span>
+            <span>GPT Templating Utility</span>
           </h1>
           <div>
             <input name="API Key" type="text" id="api_key" />
@@ -175,19 +173,19 @@ const Templating = () => {
               Generate document
             </button>
             <PulseLoader
-              color={"#2D5C9A"}
+              color={'#2D5C9A'}
               loading={isSpinnerActive}
               size={50}
               cssOverride={{
-                display: "block",
-                margin: "20 auto",
+                display: 'block',
+                margin: '20 auto',
               }}
               aria-label="Loading Spinner"
               data-testid="loader"
             />
             <br />
             <br />
-            <span id={"log"}></span>
+            <span id={'log'}></span>
           </div>
         </div>
       </SignedIn>
@@ -199,7 +197,7 @@ const Templating = () => {
 };
 export async function getStaticProps() {
   return {
-    props: { title: "Templating" },
+    props: { title: 'Templating' },
     revalidate: 10,
   };
 }

@@ -98,7 +98,7 @@ const Explorer = () => {
                   />
                   <label
                     htmlFor="folder-checkbox"
-                    className={"${styles.heading} ${styles.folderLabel}"}
+                    className={'${styles.heading} ${styles.folderLabel}'}
                   >
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <ChevronRight

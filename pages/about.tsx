@@ -1,4 +1,4 @@
-import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
+import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';
 
 const AboutPage = () => {
   return (
@@ -10,7 +10,7 @@ const AboutPage = () => {
 
 export async function getStaticProps() {
   return {
-    props: { title: "About" },
+    props: { title: 'About' },
   };
 }
 

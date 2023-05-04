@@ -1,34 +1,34 @@
 module.exports = {
   images: {
     domains: [
-      "res.cloudinary.com",
-      "avatars.githubusercontent.com",
-      "imgur.com",
-      "i.imgur.com",
-      "media.tenor.com",
+      'res.cloudinary.com',
+      'avatars.githubusercontent.com',
+      'imgur.com',
+      'i.imgur.com',
+      'media.tenor.com',
     ],
   },
   async rewrites() {
     return [
       {
-        source: "/about",
-        destination: "/",
+        source: '/about',
+        destination: '/',
       },
       {
-        source: "/contact",
-        destination: "/",
+        source: '/contact',
+        destination: '/',
       },
       {
-        source: "/personal",
-        destination: "/",
+        source: '/personal',
+        destination: '/',
       },
       {
-        source: "/github",
-        destination: "/",
+        source: '/github',
+        destination: '/',
       },
       {
-        source: "/settings",
-        destination: "/",
+        source: '/settings',
+        destination: '/',
       },
     ];
   },

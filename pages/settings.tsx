@@ -1,6 +1,6 @@
-import ThemeInfo from "../components/ThemeInfo";
-import styles from "../styles/SettingsPage.module.css";
-import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
+import ThemeInfo from '../components/ThemeInfo';
+import styles from '../styles/SettingsPage.module.css';
+import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';
 
 const SettingsPage = () => {
   return (
@@ -56,7 +56,7 @@ const SettingsPage = () => {
 
 export async function getStaticProps() {
   return {
-    props: { title: "Settings" },
+    props: { title: 'Settings' },
   };
 }
 

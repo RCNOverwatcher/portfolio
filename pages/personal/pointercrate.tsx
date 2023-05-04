@@ -1,13 +1,14 @@
-import FadeIn from "@rcnoverwatcher/react-fade-in-react-18";
-import styles from "../../styles/Pointercrate.module.css";
-import React, { useState } from "react";
+import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';
+import styles from '../../styles/Pointercrate.module.css';
+import React, { useState } from 'react';
+import Image from 'next/image';
 
 const Pointercrate = () => {
   const api1 =
-    "https://pointercrate.com/api/v2/demons/listed/?limit=50&after=100";
-  const api2 = "https://pointercrate.com/api/v2/demons/listed/?limit=100";
+    'https://pointercrate.com/api/v2/demons/listed/?limit=50&after=100';
+  const api2 = 'https://pointercrate.com/api/v2/demons/listed/?limit=100';
 
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const [orderedResults, setOrderedResults] = useState([]);
 
   const searchData = async () => {
@@ -20,7 +21,7 @@ const Pointercrate = () => {
     const combinedData = [...data1, ...data2];
 
     const searchResults = combinedData.filter((item) =>
-      item.name.toLowerCase().includes(query.toLowerCase())
+      item.name.toLowerCase().includes(query.toLowerCase()),
     );
 
     const ordered = searchResults.sort((a, b) => a.position - b.position);
@@ -45,7 +46,7 @@ const Pointercrate = () => {
         <div className={styles.results}>
           {orderedResults.map((result) => (
             <div key={result.position}>
-              <img src={result.thumbnail} alt={result.name} />
+              <Image src={result.thumbnail} alt={result.name} />
               <p>
                 <a
                   href={`https://pointercrate.com/demonlist/${result.position}`}
@@ -66,7 +67,7 @@ const Pointercrate = () => {
 
 export async function getStaticProps() {
   return {
-    props: { title: "Pointercrate Search" },
+    props: { title: 'Pointercrate Search' },
   };
 }
 
