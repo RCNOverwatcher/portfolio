@@ -93,7 +93,7 @@ const Explorer = () => {
           {explorerItems.map((item) => {
             if (item.items) {
               return (
-                <div className={styles.folder}>
+                <div className={styles.folder} key={item.name}>
                   <input
                     type="checkbox"
                     className={styles.checkbox}
@@ -120,7 +120,7 @@ const Explorer = () => {
                     }
                   >
                     {item.items.map((subItem) => (
-                      <Link href={subItem.path} className={styles.link}>
+                      <Link href={subItem.path} className={styles.link} key={item.name}>
                         <div className={styles.file}>
                           <Image
                             src={`/${subItem.icon}`}
@@ -137,7 +137,7 @@ const Explorer = () => {
               );
             } else {
               return (
-                <Link href={item.path} className={styles.link}>
+                <Link href={item.path} className={styles.link} key={item.name}>
                   <div className={styles.file}>
                     <Image
                       src={`/${item.icon}`}
