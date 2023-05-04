@@ -15,6 +15,7 @@ import {
 import { RedirectToSignIn, SignedIn, SignedOut } from '@clerk/nextjs';
 import { PulseLoader } from 'react-spinners';
 import catchErrors from '../api/templating/catchErrors';
+import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';
 
 let PizZipUtils = null;
 if (typeof window !== 'undefined') {
@@ -142,52 +143,54 @@ const Templating = () => {
   return (
     <div>
       <SignedIn>
-        <div>
-          <h1>
-            <span>GPT Templating Utility</span>
-          </h1>
+        <FadeIn transitionDuration={1000}>
           <div>
-            <input name="API Key" type="text" id="api_key" />
-            <button onClick={storeAPIKey} className={styles.button}>
-              Store OpenAI API Key
-            </button>
-          </div>
-          <div>
-            <input name="Year" type="text" id="year" />
-            <button onClick={storeYear} className={styles.button}>
-              Store Year
-            </button>
-          </div>
-          <br />
-          <div>
-            <button onClick={useBasicGPT} className={styles.choiceButton}>
-              Use GPT 3.5 Turbo
-            </button>
-            <button onClick={useAdvancedGPT} className={styles.choiceButton}>
-              Use GPT 4
-            </button>
-          </div>
-          <br />
-          <div>
-            <button onClick={produceDocument} className={styles.button}>
-              Generate document
-            </button>
-            <PulseLoader
-              color={'#2D5C9A'}
-              loading={isSpinnerActive}
-              size={50}
-              cssOverride={{
-                display: 'block',
-                margin: '20 auto',
-              }}
-              aria-label="Loading Spinner"
-              data-testid="loader"
-            />
+            <h1>
+              <span>GPT Templating Utility</span>
+            </h1>
+            <div>
+              <input name="API Key" type="text" id="api_key" />
+              <button onClick={storeAPIKey} className={styles.button}>
+                Store OpenAI API Key
+              </button>
+            </div>
+            <div>
+              <input name="Year" type="text" id="year" />
+              <button onClick={storeYear} className={styles.button}>
+                Store Year
+              </button>
+            </div>
             <br />
+            <div>
+              <button onClick={useBasicGPT} className={styles.choiceButton}>
+                Use GPT 3.5 Turbo
+              </button>
+              <button onClick={useAdvancedGPT} className={styles.choiceButton}>
+                Use GPT 4
+              </button>
+            </div>
             <br />
-            <span id={'log'}></span>
+            <div>
+              <button onClick={produceDocument} className={styles.button}>
+                Generate document
+              </button>
+              <PulseLoader
+                color={'#2D5C9A'}
+                loading={isSpinnerActive}
+                size={50}
+                cssOverride={{
+                  display: 'block',
+                  margin: '20 auto',
+                }}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+              <br />
+              <br />
+              <span id={'log'}></span>
+            </div>
           </div>
-        </div>
+        </FadeIn>
       </SignedIn>
       <SignedOut>
         <RedirectToSignIn />

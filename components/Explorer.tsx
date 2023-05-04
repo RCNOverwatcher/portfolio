@@ -53,6 +53,11 @@ const explorerItems = [
         path: '/personal/raspberry-pygame',
         icon: 'python_icon.svg',
       },
+      {
+        name: 'templating.ts',
+        path: '/personal/templating',
+        icon: 'typescript_icon.svg',
+      }
     ],
   },
 ];
