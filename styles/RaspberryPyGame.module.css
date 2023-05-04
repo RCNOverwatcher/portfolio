@@ -1,9 +1,14 @@
-.imagepos{
-    position: fixed;
-    right: 10rem;
-    top: 5rem;
+.imagepos {
+  position: fixed;
+  right: 10rem;
 }
 
-.finalframe{
-    margin: 20px;
+.finalframe {
+  margin: 20px;
+  left: 80px;
+}
+
+.centre {
+  max-width: 500px;
+  margin: auto;
 }

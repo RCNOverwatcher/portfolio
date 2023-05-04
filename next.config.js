@@ -6,7 +6,7 @@ module.exports = {
       'imgur.com',
       'i.imgur.com',
       'media.tenor.com',
-      "user-images.githubusercontent.com",
+      'user-images.githubusercontent.com',
     ],
   },
   async rewrites() {

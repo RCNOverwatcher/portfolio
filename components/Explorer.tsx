@@ -16,6 +16,26 @@ function toggleSidebar() {
 
 const explorerItems = [
   {
+    name: 'Projects',
+    items: [
+      {
+        name: 'pointercrate.js',
+        path: '/personal/pointercrate',
+        icon: 'demon.svg',
+      },
+      {
+        name: 'raspberry-pygame.py',
+        path: '/personal/raspberry-pygame',
+        icon: 'python_icon.svg',
+      },
+      {
+        name: 'templating.ts',
+        path: '/personal/templating',
+        icon: 'typescript_icon.svg',
+      },
+    ],
+  },
+  {
     name: 'home.jsx',
     path: '/',
     icon: 'react_icon.svg',
@@ -40,31 +60,11 @@ const explorerItems = [
     path: '/github',
     icon: 'markdown_icon.svg',
   },
-  {
-    name: 'Projects',
-    items: [
-      {
-        name: 'pointercrate.js',
-        path: '/personal/pointercrate',
-        icon: 'demon.svg',
-      },
-      {
-        name: 'raspberry-pygame.py',
-        path: '/personal/raspberry-pygame',
-        icon: 'python_icon.svg',
-      },
-      {
-        name: 'templating.ts',
-        path: '/personal/templating',
-        icon: 'typescript_icon.svg',
-      }
-    ],
-  },
 ];
 
 const Explorer = () => {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
-  const [folderOpen, setFolderOpen] = useState(true);
+  const [folderOpen, setFolderOpen] = useState(false);
 
   useHotkeys('ctrl+b', () => toggleSidebar());
 
@@ -103,7 +103,7 @@ const Explorer = () => {
                   />
                   <label
                     htmlFor="folder-checkbox"
-                    className={'${styles.heading} ${styles.folderLabel}'}
+                    className={'${styles.folderLabel}'}
                   >
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <ChevronRight

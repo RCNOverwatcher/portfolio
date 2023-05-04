@@ -143,7 +143,7 @@ const Templating = () => {
   return (
     <div>
       <SignedIn>
-        <FadeIn transitionDuration={1000}>
+        <FadeIn transitionDuration={1500}>
           <div>
             <h1>
               <span>GPT Templating Utility</span>
