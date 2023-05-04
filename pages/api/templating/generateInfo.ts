@@ -4,14 +4,14 @@ import store from "store2";
 export const celebrityList = async (year: number, model: string) => {
   try {
     document.getElementById("log").innerHTML = "Generating celebrities...";
-    let api_key = store.get("api_key");
+    let api_key: string = store.get("api_key");
 
     const configuration = new Configuration({
       apiKey: api_key,
     });
     const openai = new OpenAIApi(configuration);
 
-    const question = "Give me 6 people who were born in " + year + ".";
+    const question: string = "Give me 6 people who were born in " + year + ".";
     const completion = await openai.createChatCompletion({
       model: model,
       messages: [
@@ -24,7 +24,7 @@ export const celebrityList = async (year: number, model: string) => {
       ],
       temperature: 0,
     });
-    let data = completion.data.choices[0].message.content;
+    let data: string = completion.data.choices[0].message.content;
 
     return data.split(", ");
   } catch (e) {
@@ -36,7 +36,7 @@ export const celebrityList = async (year: number, model: string) => {
 export const movies = async (year: number, model: string) => {
   try {
     document.getElementById("log").innerHTML = "Generating movies...";
-    let api_key = store.get("api_key");
+    let api_key: string = store.get("api_key");
 
     const configuration = new Configuration({
       apiKey: api_key,
@@ -56,7 +56,7 @@ export const movies = async (year: number, model: string) => {
       ],
       temperature: 0,
     });
-    let data = completion.data.choices[0].message.content;
+    let data: string = completion.data.choices[0].message.content;
 
     return data.split(", ");
   } catch (e) {
@@ -68,7 +68,7 @@ export const movies = async (year: number, model: string) => {
 export const monarchs = async (year: number, model: string) => {
   try {
     document.getElementById("log").innerHTML = "Generating monarchs...";
-    let api_key = store.get("api_key");
+    let api_key: string = store.get("api_key");
 
     const configuration = new Configuration({
       apiKey: api_key,
@@ -88,7 +88,7 @@ export const monarchs = async (year: number, model: string) => {
       ],
       temperature: 0,
     });
-    let data = completion.data.choices[0].message.content;
+    let data: string = completion.data.choices[0].message.content;
     if (data.slice(-1) == ".") {
       return data.slice(0, -1); // remove the period at the end of the string
     } else {
@@ -103,7 +103,7 @@ export const monarchs = async (year: number, model: string) => {
 export const books = async (year, model) => {
   try {
     document.getElementById("log").innerHTML = "Generating books...";
-    let api_key = store.get("api_key");
+    let api_key: string = store.get("api_key");
 
     const configuration = new Configuration({
       apiKey: api_key,
@@ -125,7 +125,7 @@ export const books = async (year, model) => {
       ],
       temperature: 0,
     });
-    let data = completion.data.choices[0].message.content;
+    let data: string = completion.data.choices[0].message.content;
     let bookdata1 = data.replace(/['"]+/g, "");
     return bookdata1.split(", ");
   } catch (e) {
@@ -137,7 +137,7 @@ export const books = async (year, model) => {
 export const worldPopulation = async (year, model) => {
   try {
     document.getElementById("log").innerHTML = "Generating world population...";
-    let api_key = store.get("api_key");
+    let api_key: string = store.get("api_key");
 
     const configuration = new Configuration({
       apiKey: api_key,
@@ -160,7 +160,7 @@ export const worldPopulation = async (year, model) => {
       ],
       temperature: 0,
     });
-    let data = completion.data.choices[0].message.content;
+    let data: string = completion.data.choices[0].message.content;
 
     if (data.slice(-1) == ".") {
       return data.slice(0, -1);
@@ -177,7 +177,7 @@ export const worldPopulation = async (year, model) => {
 export const UKPopulation = async (year, model) => {
   try {
     document.getElementById("log").innerHTML = "Generating UK population...";
-    let api_key = store.get("api_key");
+    let api_key: string = store.get("api_key");
 
     const configuration = new Configuration({
       apiKey: api_key,
@@ -199,7 +199,7 @@ export const UKPopulation = async (year, model) => {
       ],
       temperature: 0,
     });
-    let data = completion.data.choices[0].message.content;
+    let data: string = completion.data.choices[0].message.content;
 
     if (data.slice(-1) == ".") {
       return data.slice(0, -1); // remove the period at the end of the string
