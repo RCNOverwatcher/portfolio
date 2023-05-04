@@ -7,13 +7,14 @@ import { saveAs } from "file-saver";
 import {
   monarchs,
   movies,
-  celebrities,
+  celebrityList,
   books,
   worldPopulation,
   UKPopulation,
 } from "../api/templating/generateInfo";
 import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
 import { PulseLoader } from "react-spinners";
+import catchErrors from "../api/templating/catchErrors";
 
 let PizZipUtils = null;
 if (typeof window !== "undefined") {
@@ -62,13 +63,15 @@ function loadFile(url, callback) {
 async function generateDocument() {
   const monarch = await monarchs(store.get("year"), store.get("model"));
   const movieList = await movies(store.get("year"), store.get("model"));
-  const celebrityList = await celebrities(
+  const celebrities = await celebrityList(
     store.get("year"),
     store.get("model")
   );
   const bookList = await books(store.get("year"), store.get("model"));
   const worldPop = await worldPopulation(store.get("year"), store.get("model"));
   const UKPop = await UKPopulation(store.get("year"), store.get("model"));
+
+  catchErrors(monarch, movieList, celebrities, bookList, worldPop, UKPop);
 
   loadFile(
     "https://res.cloudinary.com/dtqhs8nvm/raw/upload/v1682679318/template.docx",
@@ -87,11 +90,11 @@ async function generateDocument() {
         book3: bookList[2],
         book4: bookList[3],
         book5: bookList[4],
-        celebrity1: celebrityList[0],
-        celebrity2: celebrityList[1],
-        celebrity3: celebrityList[2],
-        celebrity4: celebrityList[3],
-        celebrity5: celebrityList[4],
+        celebrity1: celebrities[0],
+        celebrity2: celebrities[1],
+        celebrity3: celebrities[2],
+        celebrity4: celebrities[3],
+        celebrity5: celebrities[4],
         movie1: movieList[0],
         movie2: movieList[1],
         movie3: movieList[2],
@@ -113,6 +116,7 @@ async function generateDocument() {
             .join("\n");
           console.log("errorMessages", errorMessages);
         }
+        document.getElementById("log").innerHTML = error;
         throw error;
       }
       let out = doc.getZip().generate({
@@ -130,7 +134,8 @@ const Templating = () => {
   async function produceDocument() {
     setSpinnerActive(true);
     generateDocument().then(function () {
-      document.getElementById("log").innerHTML = "Document created successfully";
+      document.getElementById("log").innerHTML =
+        "Document created successfully";
       setSpinnerActive(false);
     });
   }
@@ -180,8 +185,8 @@ const Templating = () => {
               aria-label="Loading Spinner"
               data-testid="loader"
             />
-            <br/>
-            <br/>
+            <br />
+            <br />
             <span id={"log"}></span>
           </div>
         </div>
