@@ -25,7 +25,7 @@
 }
 
 /* Dracula */
-[data-theme="dracula"] {
+[data-theme='dracula'] {
   --main-bg: #282a36;
   --bg-text: #313340;
   --text-color: #efefef;
@@ -51,7 +51,7 @@
 }
 
 /* Ayu Dark */
-[data-theme="ayu-dark"] {
+[data-theme='ayu-dark'] {
   --main-bg: #0a0e14;
   --bg-text: #101620;
   --text-color: #efefef;
@@ -77,7 +77,7 @@
 }
 
 /* Ayu Mirage */
-[data-theme="ayu-mirage"] {
+[data-theme='ayu-mirage'] {
   --main-bg: #1f2430;
   --bg-text: #21242b;
   --text-color: #efefef;
@@ -103,7 +103,7 @@
 }
 
 /* Nord */
-[data-theme="nord"] {
+[data-theme='nord'] {
   --main-bg: #2e3440;
   --bg-text: #3b414d;
   --text-color: #efefef;
@@ -129,7 +129,7 @@
 }
 
 /* Night Owl */
-[data-theme="night-owl"] {
+[data-theme='night-owl'] {
   --main-bg: #011627;
   --bg-text: #031d33;
   --text-color: #89a4bb;

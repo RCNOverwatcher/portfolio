@@ -7,7 +7,7 @@ import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';
 const GithubPage = ({ repos, user }) => {
   return (
     <>
-      <FadeIn transitionDuration={1000}>
+      <FadeIn transitionDuration={1500}>
         <div className={styles.user}>
           <div>
             <Image

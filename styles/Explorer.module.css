@@ -2,7 +2,7 @@
   background: var(--explorer-bg);
   width: 18vw;
   color: rgb(225, 228, 232);
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   border-right: 1px solid var(--explorer-border);
 }
 
@@ -81,19 +81,39 @@
 }
 
 .folderLabel {
-  font-weight: bold;
-  color: #5a5a5a;
+  font-weight: normal;
+  color: #efefef;
   margin-left: 10px;
 }
 
 .folder {
+  padding-left: 0.5rem;
 }
 
 .subItems {
+  /* Add left padding to create a nested appearance for subItems */
+  padding-left: 0.5rem;
+  position: relative;
+}
+
+.subItems::before {
+  /* Create a vertical line down the left side of the subItems */
+  content: '';
+  left: 15px;
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Adjust the color and opacity as needed */
 }
 
 .link {
-  color: #2D5C9A;
+  color: #2d5c9a;
   background-color: transparent;
   text-decoration: none;
 }

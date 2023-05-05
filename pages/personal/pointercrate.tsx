@@ -29,7 +29,7 @@ const Pointercrate = () => {
   };
 
   return (
-    <FadeIn transitionDuration={1000}>
+    <FadeIn transitionDuration={1500}>
       <h1 className={styles.title}>Pointercrate API Search</h1>
       <div>
         <input

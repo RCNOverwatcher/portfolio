@@ -16,6 +16,26 @@ function toggleSidebar() {
 
 const explorerItems = [
   {
+    name: 'Projects',
+    items: [
+      {
+        name: 'pointercrate.js',
+        path: '/personal/pointercrate',
+        icon: 'demon.svg',
+      },
+      {
+        name: 'raspberry-pygame.py',
+        path: '/personal/raspberry-pygame',
+        icon: 'python_icon.svg',
+      },
+      {
+        name: 'templating.ts',
+        path: '/personal/templating',
+        icon: 'typescript_icon.svg',
+      },
+    ],
+  },
+  {
     name: 'home.jsx',
     path: '/',
     icon: 'react_icon.svg',
@@ -40,26 +60,11 @@ const explorerItems = [
     path: '/github',
     icon: 'markdown_icon.svg',
   },
-  {
-    name: 'Projects',
-    items: [
-      {
-        name: 'pointercrate.js',
-        path: '/personal/pointercrate',
-        icon: 'demon.svg',
-      },
-      {
-        name: 'raspberry-pygame.py',
-        path: '/personal/raspberry-pygame',
-        icon: 'python_icon.svg',
-      },
-    ],
-  },
 ];
 
 const Explorer = () => {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
-  const [folderOpen, setFolderOpen] = useState(true);
+  const [folderOpen, setFolderOpen] = useState(false);
 
   useHotkeys('ctrl+b', () => toggleSidebar());
 
@@ -88,7 +93,7 @@ const Explorer = () => {
           {explorerItems.map((item) => {
             if (item.items) {
               return (
-                <div className={styles.folder}>
+                <div className={styles.folder} key={item.name}>
                   <input
                     type="checkbox"
                     className={styles.checkbox}
@@ -98,7 +103,7 @@ const Explorer = () => {
                   />
                   <label
                     htmlFor="folder-checkbox"
-                    className={'${styles.heading} ${styles.folderLabel}'}
+                    className={'${styles.folderLabel}'}
                   >
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <ChevronRight
@@ -115,7 +120,7 @@ const Explorer = () => {
                     }
                   >
                     {item.items.map((subItem) => (
-                      <Link href={subItem.path} className={styles.link}>
+                      <Link href={subItem.path} className={styles.link} key={item.name}>
                         <div className={styles.file}>
                           <Image
                             src={`/${subItem.icon}`}
@@ -132,7 +137,7 @@ const Explorer = () => {
               );
             } else {
               return (
-                <Link href={item.path} className={styles.link}>
+                <Link href={item.path} className={styles.link} key={item.name}>
                   <div className={styles.file}>
                     <Image
                       src={`/${item.icon}`}

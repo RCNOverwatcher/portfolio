@@ -4,7 +4,7 @@ import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';
 
 const SettingsPage = () => {
   return (
-    <FadeIn transitionDuration={1000}>
+    <FadeIn transitionDuration={1500}>
       <h2>Manage Themes</h2>
       <div className={styles.container}>
         <ThemeInfo

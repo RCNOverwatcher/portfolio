@@ -4,7 +4,7 @@ import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';
 
 const ContactPage = () => {
   return (
-    <FadeIn transitionDuration={1000}>
+    <FadeIn transitionDuration={1500}>
       <div className={styles.container}>
         <div>
           <h3 className={styles.heading}>Reach Out Via Socials</h3>

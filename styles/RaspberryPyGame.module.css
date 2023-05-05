@@ -1,7 +1,11 @@
 .imagepos {
-  position: absolute;
-  right: 3rem;
-  top: 5rem;
+  position: fixed;
+  right: 10rem;
+}
+
+.finalframe {
+  margin: 20px;
+  left: 80px;
 }
 
 .centre {
