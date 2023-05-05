@@ -64,7 +64,7 @@ const explorerItems = [
 
 const Explorer = () => {
   const [portfolioOpen, setPortfolioOpen] = useState(true);
-  const [folderOpen, setFolderOpen] = useState(false);
+  const [folderOpen, setFolderOpen] = useState(true);
 
   useHotkeys('ctrl+b', () => toggleSidebar());
 
@@ -120,7 +120,11 @@ const Explorer = () => {
                     }
                   >
                     {item.items.map((subItem) => (
-                      <Link href={subItem.path} className={styles.link} key={item.name}>
+                      <Link
+                        href={subItem.path}
+                        className={styles.link}
+                        key={item.name}
+                      >
                         <div className={styles.file}>
                           <Image
                             src={`/${subItem.icon}`}
