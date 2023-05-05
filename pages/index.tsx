@@ -6,7 +6,7 @@ import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';
 export default function HomePage() {
   return (
     <>
-      <FadeIn transitionDuration={1500}>
+      <FadeIn transitionDuration={1000}>
         <div className={styles.container}>
           <div className={styles.background}>
             <h1>JACOB</h1>

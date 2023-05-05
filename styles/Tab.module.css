@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   border: 1px solid var(--tab-border);
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 0.9rem;
   cursor: pointer;
   vertical-align: middle;
@@ -35,7 +35,7 @@
 }
 
 .link {
-  color: #2d5c9a;
+  color: #2D5C9A;
   background-color: transparent;
   text-decoration: none;
 }

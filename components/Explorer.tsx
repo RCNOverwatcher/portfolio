@@ -16,26 +16,6 @@ function toggleSidebar() {
 
 const explorerItems = [
   {
-    name: 'Projects',
-    items: [
-      {
-        name: 'pointercrate.js',
-        path: '/personal/pointercrate',
-        icon: 'demon.svg',
-      },
-      {
-        name: 'raspberry-pygame.py',
-        path: '/personal/raspberry-pygame',
-        icon: 'python_icon.svg',
-      },
-      {
-        name: 'templating.ts',
-        path: '/personal/templating',
-        icon: 'typescript_icon.svg',
-      },
-    ],
-  },
-  {
     name: 'home.jsx',
     path: '/',
     icon: 'react_icon.svg',
@@ -59,6 +39,21 @@ const explorerItems = [
     name: 'github.md',
     path: '/github',
     icon: 'markdown_icon.svg',
+  },
+  {
+    name: 'Projects',
+    items: [
+      {
+        name: 'pointercrate.js',
+        path: '/personal/pointercrate',
+        icon: 'demon.svg',
+      },
+      {
+        name: 'raspberry-pygame.py',
+        path: '/personal/raspberry-pygame',
+        icon: 'python_icon.svg',
+      },
+    ],
   },
 ];
 
@@ -93,7 +88,7 @@ const Explorer = () => {
           {explorerItems.map((item) => {
             if (item.items) {
               return (
-                <div className={styles.folder} key={item.name}>
+                <div className={styles.folder}>
                   <input
                     type="checkbox"
                     className={styles.checkbox}
@@ -103,7 +98,7 @@ const Explorer = () => {
                   />
                   <label
                     htmlFor="folder-checkbox"
-                    className={'${styles.folderLabel}'}
+                    className={'${styles.heading} ${styles.folderLabel}'}
                   >
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                       <ChevronRight
@@ -120,11 +115,7 @@ const Explorer = () => {
                     }
                   >
                     {item.items.map((subItem) => (
-                      <Link
-                        href={subItem.path}
-                        className={styles.link}
-                        key={item.name}
-                      >
+                      <Link href={subItem.path} className={styles.link}>
                         <div className={styles.file}>
                           <Image
                             src={`/${subItem.icon}`}
@@ -141,7 +132,7 @@ const Explorer = () => {
               );
             } else {
               return (
-                <Link href={item.path} className={styles.link} key={item.name}>
+                <Link href={item.path} className={styles.link}>
                   <div className={styles.file}>
                     <Image
                       src={`/${item.icon}`}
