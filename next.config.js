@@ -1,7 +1,4 @@
 module.exports = {
-  experimental: {
-    appDir: false,
-  },
   images: {
     domains: [
       'res.cloudinary.com',
