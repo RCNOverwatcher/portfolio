@@ -120,7 +120,11 @@ const Explorer = () => {
                     }
                   >
                     {item.items.map((subItem) => (
-                      <Link href={subItem.path} className={styles.link} key={item.name}>
+                      <Link
+                        href={subItem.path}
+                        className={styles.link}
+                        key={item.name}
+                      >
                         <div className={styles.file}>
                           <Image
                             src={`/${subItem.icon}`}

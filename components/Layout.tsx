@@ -7,6 +7,7 @@ import styles from '../styles/Layout.module.css';
 import useKonami from 'react-use-konami';
 import { useState } from 'react';
 import Image from 'next/image';
+import crashBrowser from '../pages/api/crashBrowser';
 
 const Layout = ({ children }) => {
   const [isActive, setActive] = useState(true);
@@ -20,6 +21,15 @@ const Layout = ({ children }) => {
     },
     {
       code: ['k', 'a', 'l', 'e', 'b'],
+    },
+  );
+
+  useKonami(
+    () => {
+      crashBrowser();
+    },
+    {
+      code: ['c', 'r', 'a', 's', 'h'],
     },
   );
 

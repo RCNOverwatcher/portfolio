@@ -1,9 +1,9 @@
-import styles from "../../styles/Templating.module.css";
-import React, { useState } from "react";
-import store from "store2";
-import Docxtemplater from "docxtemplater";
-import PizZip from "pizzip";
-import { saveAs } from "file-saver";
+import styles from '../../styles/Templating.module.css';
+import React, { useState } from 'react';
+import store from 'store2';
+import Docxtemplater from 'docxtemplater';
+import PizZip from 'pizzip';
+import { saveAs } from 'file-saver';
 import {
   monarchs,
   movies,
