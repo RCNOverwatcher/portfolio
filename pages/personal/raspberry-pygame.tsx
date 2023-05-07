@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import GitHubButton from 'react-github-btn';
 import styles from '../../styles/RaspberryPyGame.module.css';
 import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';

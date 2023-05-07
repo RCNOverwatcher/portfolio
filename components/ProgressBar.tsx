@@ -1,6 +1,7 @@
 import Router from 'next/router';
-import * as NProgress from 'nprogress';
-import * as React from 'react';
+import NProgress from 'nprogress';
+import { useEffect } from 'react';
+
 
 export interface NextNProgressProps {
   progressBarVisibility?: 'visible' | 'hidden';
@@ -80,7 +81,7 @@ export default function NextNProgress({
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (options) {
       NProgress.configure(options);
     }
