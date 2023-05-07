@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
   const [showDinoGame, setShowDinoGame] = useState(false);
   useKonami(
     () => {
-      setShowDinoGame(showDinoGame => !showDinoGame);
+      setShowDinoGame(true);
     },
     {
       code: ['d', 'i', 'n', 'o'],
@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
   const [showYouShould, setShowYouShould] = useState(false);
   useKonami(
     () => {
-      setShowYouShould(showYouShould => !showYouShould);
+      setShowYouShould((showYouShould) => !showYouShould);
     },
     {
       code: [
