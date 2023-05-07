@@ -8,10 +8,9 @@ import useKonami from 'react-use-konami';
 import { useState } from 'react';
 import Image from 'next/image';
 import crashBrowser from '../pages/api/crashBrowser';
+import DinoGame from './dinoGame';
 
 const Layout = ({ children }) => {
-  const [isActive, setActive] = useState(true);
-
   useKonami(
     () => {
       const kalebExposal = new Audio(
@@ -33,10 +32,20 @@ const Layout = ({ children }) => {
     },
   );
 
+  const [showDinoGame, setShowDinoGame] = useState(false);
   useKonami(
     () => {
-      // @ts-ignore
-      setActive((isActive) => !isActive);
+      setShowDinoGame(showDinoGame => !showDinoGame);
+    },
+    {
+      code: ['d', 'i', 'n', 'o'],
+    },
+  );
+
+  const [showYouShould, setShowYouShould] = useState(false);
+  useKonami(
+    () => {
+      setShowYouShould(showYouShould => !showYouShould);
     },
     {
       code: [
@@ -65,15 +74,18 @@ const Layout = ({ children }) => {
           <Tabsbar />
           <main className={styles.content}>{children}</main>
         </div>
-        <Image
-          className={isActive ? 'hidekys' : null}
-          src={
-            'https://res.cloudinary.com/dtqhs8nvm/image/upload/v1682447998/kys_kvq9wm.gif'
-          }
-          alt={'hehe'}
-          width={1000}
-          height={1000}
-        />
+        {showYouShould && (
+          <Image
+            src={
+              'https://res.cloudinary.com/dtqhs8nvm/image/upload/v1682447998/kys_kvq9wm.gif'
+            }
+            alt={'hehe'}
+            width={1000}
+            height={1000}
+          />
+        )}
+
+        {showDinoGame && <DinoGame />}
       </div>
       <Bottombar />
     </>
