@@ -15,6 +15,6 @@
     "description": "A GUI for the Pointercrate API. My first adventure into JavaScript.",
     "tags": ["vanilla-js", "css", "html"],
     "source_code": "https://github.com/RCNOverwatcher/pointercrate-api-search/",
-    "demo": "https://pointercrate-api-search.vercel.app/"
+    "demo": "https://jacobwiltshire.com/personal/pointercrate"
   }
 ]
