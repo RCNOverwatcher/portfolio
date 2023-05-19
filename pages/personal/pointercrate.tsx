@@ -1,7 +1,8 @@
 import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';
 import styles from '../../styles/Pointercrate.module.css';
 import React, { useState } from 'react';
-import Image from "next/legacy/image";
+import Image from 'next/legacy/image';
+import Link from 'next/link';
 
 const Pointercrate = () => {
   const api1 =
@@ -29,9 +30,9 @@ const Pointercrate = () => {
   };
 
   return (
-    <FadeIn transitionDuration={1500}>
-      <h1 className={styles.title}>Pointercrate API Search</h1>
-      <div>
+    <>
+      <FadeIn transitionDuration={1500}>
+        <h1 className={styles.title}>Pointercrate API Search</h1>
         <input
           className={styles.input}
           type="text"
@@ -46,22 +47,27 @@ const Pointercrate = () => {
         <div className={styles.results}>
           {orderedResults.map((result) => (
             <div key={result.position}>
-              <Image src={result.thumbnail} alt={result.name} />
-              <p>
-                <a
+              <Image
+                src={result.thumbnail}
+                alt={result.name}
+                width={320}
+                height={180}
+              />
+              <div>
+                <Link
                   href={`https://pointercrate.com/demonlist/${result.position}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.link}
                 >
                   {result.name} <em>({result.position})</em>
-                </a>
-              </p>
+                </Link>
+              </div>
             </div>
           ))}
         </div>
-      </div>
-    </FadeIn>
+      </FadeIn>
+    </>
   );
 };
 

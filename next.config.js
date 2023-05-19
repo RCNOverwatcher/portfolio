@@ -1,4 +1,5 @@
 module.exports = {
+  
   images: {
     domains: [
       'res.cloudinary.com',
@@ -7,6 +8,9 @@ module.exports = {
       'i.imgur.com',
       'media.tenor.com',
       'user-images.githubusercontent.com',
+      'i.ytimg.com',
+      'media.discordapp.net',
+      'cdn.discordapp.com',
     ],
   },
   async rewrites() {

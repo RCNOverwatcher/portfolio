@@ -8,7 +8,6 @@ import useKonami from 'react-use-konami';
 import { useState } from 'react';
 import Image from 'next/image';
 import crashBrowser from '../pages/api/crashBrowser';
-import DinoGame from './dinoGame';
 
 const Layout = ({ children }) => {
   useKonami(
@@ -29,16 +28,6 @@ const Layout = ({ children }) => {
     },
     {
       code: ['c', 'r', 'a', 's', 'h'],
-    },
-  );
-
-  const [showDinoGame, setShowDinoGame] = useState(false);
-  useKonami(
-    () => {
-      setShowDinoGame(true);
-    },
-    {
-      code: ['d', 'i', 'n', 'o'],
     },
   );
 
@@ -84,8 +73,6 @@ const Layout = ({ children }) => {
             height={1000}
           />
         )}
-
-        {showDinoGame && <DinoGame />}
       </div>
       <Bottombar />
     </>

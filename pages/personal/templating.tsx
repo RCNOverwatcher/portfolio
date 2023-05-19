@@ -1,3 +1,5 @@
+'use client';
+
 import styles from '../../styles/Templating.module.css';
 import React, { useState } from 'react';
 import store from 'store2';
@@ -25,18 +27,14 @@ if (typeof window !== 'undefined') {
 }
 
 function storeAPIKey() {
-  if (typeof window === 'object') {
-    const input = document.getElementById('api_key') as HTMLInputElement | null;
-    const api_key = input.value;
-    store('api_key', api_key);
-  }
+  const input = document.getElementById('api_key') as HTMLInputElement | null;
+  const api_key = input.value;
+  store('api_key', api_key);
 }
 function storeYear() {
-  if (typeof window === 'object') {
-    const input = document.getElementById('year') as HTMLInputElement | null;
-    const year = input.value;
-    store('year', year);
-  }
+  const input = document.getElementById('year') as HTMLInputElement | null;
+  const year = input.value;
+  store('year', year);
 }
 
 function replaceErrors(key, value) {
