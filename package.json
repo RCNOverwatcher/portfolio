@@ -18,12 +18,15 @@
   "dependencies": {
     "@clerk/nextjs": "^4.18.2",
     "@clerk/themes": "^1.7.2",
+    "@mdx-js/loader": "^2.3.0",
+    "@mdx-js/react": "^2.3.0",
+    "@next/mdx": "^13.4.3",
     "@rcnoverwatcher/react-fade-in-react-18": "github:RCNOverwatcher/react-fade-in",
     "@vercel/analytics": "^1.0.1",
     "@vercel/postgres": "^0.3.0",
     "autoprefixer": "^10.4.14",
     "core-js": "^3.30.2",
-    "docxtemplater": "^3.37.7",
+    "docxtemplater": "^3.37.8",
     "file-saver": "^2.0.5",
     "next": "^13.4.3",
     "nprogress": "^0.2.0",
@@ -41,12 +44,12 @@
     "react-spinners": "^0.13.8",
     "react-use-konami": "^1.1.0",
     "store2": "^2.14.2",
-    "vercel": "^29.3.4"
+    "vercel": "^29.4.0"
   },
   "devDependencies": {
-    "@types/node": "20.2.1",
+    "@types/node": "20.2.3",
     "@types/react": "18.2.6",
-    "eslint": "8.40.0",
+    "eslint": "8.41.0",
     "eslint-config-next": "13.4.3",
     "prettier": "^2.8.8",
     "tailwindcss": "^3.3.2",
