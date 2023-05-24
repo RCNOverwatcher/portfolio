@@ -44,7 +44,7 @@
     "react-spinners": "^0.13.8",
     "react-use-konami": "^1.1.0",
     "store2": "^2.14.2",
-    "vercel": "^29.4.0"
+    "vercel": "^30.0.0"
   },
   "devDependencies": {
     "@types/node": "20.2.3",
