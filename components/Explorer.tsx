@@ -16,19 +16,23 @@ function toggleSidebar() {
 
 const explorerItems = [
   {
+    index: 0,
     name: 'Projects',
     items: [
       {
+        index: 0,
         name: 'pointercrate.js',
         path: '/personal/pointercrate',
         icon: 'demon.svg',
       },
       {
+        index: 1,
         name: 'raspberry-pygame.py',
         path: '/personal/raspberry-pygame',
         icon: 'python_icon.svg',
       },
       {
+        index: 2,
         name: 'templating.ts',
         path: '/personal/templating',
         icon: 'typescript_icon.svg',
@@ -36,26 +40,31 @@ const explorerItems = [
     ],
   },
   {
+    index: 1,
     name: 'home.jsx',
     path: '/',
     icon: 'react_icon.svg',
   },
   {
+    index: 2,
     name: 'about.html',
     path: '/about',
     icon: 'html_icon.svg',
   },
   {
+    index: 3,
     name: 'contact.css',
     path: '/contact',
     icon: 'css_icon.svg',
   },
   {
+    index: 4,
     name: 'projects.js',
     path: '/projects',
     icon: 'js_icon.svg',
   },
   {
+    index: 5,
     name: 'github.md',
     path: '/github',
     icon: 'markdown_icon.svg',
@@ -93,7 +102,7 @@ const Explorer = () => {
           {explorerItems.map((item) => {
             if (item.items) {
               return (
-                <div className={styles.folder} key={item.name}>
+                <div className={styles.folder} key={item.index}>
                   <input
                     type="checkbox"
                     className={styles.checkbox}
@@ -123,7 +132,7 @@ const Explorer = () => {
                       <Link
                         href={subItem.path}
                         className={styles.link}
-                        key={item.name}
+                        key={subItem.index}
                       >
                         <div className={styles.file}>
                           <Image
@@ -141,7 +150,7 @@ const Explorer = () => {
               );
             } else {
               return (
-                <Link href={item.path} className={styles.link} key={item.name}>
+                <Link href={item.path} className={styles.link} key={item.index}>
                   <div className={styles.file}>
                     <Image
                       src={`/${item.icon}`}
