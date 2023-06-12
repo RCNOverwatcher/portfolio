@@ -42,13 +42,12 @@ function ButtonClick(input1: string, input2: string) {
   console.log(result, result2);
 }
 
-const CommonCharacterCountComponent = () => {
+const CommonCharacterCountPage = () => {
   const [input1, setInput1] = useState('abcde');
   const [input2, setInput2] = useState('aabbc');
   const result = CommonCharacterCount(input1, input2);
   const result2 = CommonCharacters(input1, input2);
 
-  // Function to handle button click
   const handleClick = () => {
     ButtonClick(input1, input2);
   };
@@ -93,4 +92,4 @@ export async function getStaticProps() {
   };
 }
 
-export default CommonCharacterCountComponent;
+export default CommonCharacterCountPage;

@@ -26,6 +26,15 @@ const nextConfig = {
       'cdn.discordapp.com',
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/programming-tests/test5',
+        destination: '/programming-tests/test5',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = withMDX(nextConfig);
