@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -20,12 +20,6 @@ dependencies:
   '@next/mdx':
     specifier: ^13.4.4
     version: 13.4.19(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0)
-  '@rcnoverwatcher/react-fade-in-react-18':
-    specifier: github:RCNOverwatcher/react-fade-in
-    version: github.com/RCNOverwatcher/react-fade-in/c17964c36a1f2b633cc6b6d809499567ef05e1dc(react-dom@18.2.0)(react@18.2.0)
-  '@vercel/analytics':
-    specifier: ^1.0.1
-    version: 1.0.1
   '@vercel/postgres':
     specifier: ^0.4.0
     version: 0.4.0
@@ -57,8 +51,8 @@ dependencies:
     specifier: ^8.4.24
     version: 8.4.24
   prettier-plugin-tailwindcss:
-    specifier: ^0.4.0
-    version: 0.4.0(prettier@2.8.8)
+    specifier: ^0.5.0
+    version: 0.5.4(prettier@2.8.8)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -2609,10 +2603,6 @@ packages:
 
   /@vanilla-extract/private@1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
-    dev: false
-
-  /@vercel/analytics@1.0.1:
-    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==}
     dev: false
 
   /@vercel/build-utils@6.7.5:
@@ -8475,16 +8465,16 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-tailwindcss@0.4.0(prettier@2.8.8):
-    resolution: {integrity: sha512-Rna0sDPETA0KNhMHlN8wxKNgfSa8mTl2hPPAGxnbv6tUcHT6J4RQmQ8TLXyhB7Dm5Von4iHloBxTyClYM6wT0A==}
-    engines: {node: '>=12.17.0'}
+  /prettier-plugin-tailwindcss@0.5.4(prettier@2.8.8):
+    resolution: {integrity: sha512-QZzzB1bID6qPsKHTeA9qPo1APmmxfFrA5DD3LQ+vbTmAnY40eJI7t9Q1ocqel2EKMWNPLJqdTDWZj1hKYgqSgg==}
+    engines: {node: '>=14.21.3'}
     peerDependencies:
       '@ianvs/prettier-plugin-sort-imports': '*'
       '@prettier/plugin-pug': '*'
       '@shopify/prettier-plugin-liquid': '*'
       '@shufo/prettier-plugin-blade': '*'
       '@trivago/prettier-plugin-sort-imports': '*'
-      prettier: ^2.2 || ^3.0
+      prettier: ^3.0
       prettier-plugin-astro: '*'
       prettier-plugin-css-order: '*'
       prettier-plugin-import-sort: '*'
@@ -10800,17 +10790,4 @@ packages:
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
-    dev: false
-
-  github.com/RCNOverwatcher/react-fade-in/c17964c36a1f2b633cc6b6d809499567ef05e1dc(react-dom@18.2.0)(react@18.2.0):
-    resolution: {tarball: https://codeload.github.com/RCNOverwatcher/react-fade-in/tar.gz/c17964c36a1f2b633cc6b6d809499567ef05e1dc}
-    id: github.com/RCNOverwatcher/react-fade-in/c17964c36a1f2b633cc6b6d809499567ef05e1dc
-    name: '@rcnoverwatcher/react-fade-in-react-18'
-    version: 2.0.5
-    peerDependencies:
-      react: ^16.8 || 17 || 18
-      react-dom: ^16.8 || 17 || 18
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
     dev: false
