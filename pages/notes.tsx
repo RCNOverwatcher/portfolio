@@ -1,5 +1,10 @@
-import { redirect } from 'next/navigation';
-export default async function Home({ params }) {
-  redirect('https://rcnoverwatcher.github.io/notes');
-  // ...
+export default function Notes() {
+  return (
+    <>
+      <meta
+        http-equiv="Refresh"
+        content="0; url='https://rcnoverwatcher.github.io/notes'"
+      />
+    </>
+  );
 }
