@@ -1,10 +1,9 @@
 import ThemeInfo from '../components/ThemeInfo';
 import styles from '../styles/SettingsPage.module.css';
-import FadeIn from '@rcnoverwatcher/react-fade-in-react-18';
 
 const SettingsPage = () => {
   return (
-    <FadeIn transitionDuration={1500}>
+    <>
       <h2>Manage Themes</h2>
       <div className={styles.container}>
         <ThemeInfo
@@ -50,7 +49,7 @@ const SettingsPage = () => {
           description="A VS Code theme for the night owls out there."
         />
       </div>
-    </FadeIn>
+    </>
   );
 };
 
