@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -21,11 +21,8 @@ dependencies:
     specifier: ^13.4.4
     version: 13.4.19(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0)
   '@rcnoverwatcher/react-fade-in-react-18':
-    specifier: github:RCNOverwatcher/react-fade-in
-    version: github.com/RCNOverwatcher/react-fade-in/c17964c36a1f2b633cc6b6d809499567ef05e1dc(react-dom@18.2.0)(react@18.2.0)
-  '@vercel/analytics':
-    specifier: ^1.0.1
-    version: 1.0.1
+    specifier: ^2.0.5
+    version: 2.0.5(react-dom@18.2.0)(react@18.2.0)
   '@vercel/postgres':
     specifier: ^0.4.0
     version: 0.4.0
@@ -75,8 +72,8 @@ dependencies:
     specifier: ^4.4.0
     version: 4.4.0(react-dom@18.2.0)(react@18.2.0)
   react-hydration-provider:
-    specifier: ^1.0.2
-    version: 1.0.2(react@18.2.0)
+    specifier: ^2.0.0
+    version: 2.0.0(react@18.2.0)
   react-select:
     specifier: ^5.7.3
     version: 5.7.3(@types/react@18.2.22)(react-dom@18.2.0)(react@18.2.0)
@@ -2181,6 +2178,16 @@ packages:
       tslib: 2.5.3
     dev: true
 
+  /@rcnoverwatcher/react-fade-in-react-18@2.0.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-vJKmPAA0Dk4mWTj7HfpHoRmh69o7Dlj6CP95Juf8SIrGM7oeTRu407fLiQK6UA4NAPirRw84FsJiCh3CIWRsOQ==}
+    peerDependencies:
+      react: ^16.8 || 17 || 18
+      react-dom: ^16.8 || 17 || 18
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
   /@remix-run/router@1.6.2:
     resolution: {integrity: sha512-LzqpSrMK/3JBAVBI9u3NWtOhWNw5AMQfrUFYB0+bDHTSw17z++WJLsPsxAuK+oSddsxk4d7F/JcdDPM1M5YAhA==}
     engines: {node: '>=14'}
@@ -2609,10 +2616,6 @@ packages:
 
   /@vanilla-extract/private@1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
-    dev: false
-
-  /@vercel/analytics@1.0.1:
-    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==}
     dev: false
 
   /@vercel/build-utils@6.7.5:
@@ -8798,9 +8801,9 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-hydration-provider@1.0.2(react@18.2.0):
-    resolution: {integrity: sha512-2LhJbrUZ6DNB5HXc52XGoTlfOrRXmuqWgOj9CHJ6I4UUlWl/eQwFAgOYMr9owa86F+OvAEw3Rr1ik00zKuG52A==}
-    engines: {node: '>=14.0.0'}
+  /react-hydration-provider@2.0.0(react@18.2.0):
+    resolution: {integrity: sha512-Jgd5lu1Fmefks9MNnh+eJ+REbuz54qoVvB25a81idGCaPTDqTqMyj4fqEH7Jroro3Y4x4+e9hBgzt+nfUOyTow==}
+    engines: {node: '>=16.0.0'}
     peerDependencies:
       react: '>=16'
     dependencies:
@@ -10800,17 +10803,4 @@ packages:
 
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
-    dev: false
-
-  github.com/RCNOverwatcher/react-fade-in/c17964c36a1f2b633cc6b6d809499567ef05e1dc(react-dom@18.2.0)(react@18.2.0):
-    resolution: {tarball: https://codeload.github.com/RCNOverwatcher/react-fade-in/tar.gz/c17964c36a1f2b633cc6b6d809499567ef05e1dc}
-    id: github.com/RCNOverwatcher/react-fade-in/c17964c36a1f2b633cc6b6d809499567ef05e1dc
-    name: '@rcnoverwatcher/react-fade-in-react-18'
-    version: 2.0.5
-    peerDependencies:
-      react: ^16.8 || 17 || 18
-      react-dom: ^16.8 || 17 || 18
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
     dev: false
