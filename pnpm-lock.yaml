@@ -25,7 +25,7 @@ dependencies:
     version: 1.0.2
   '@vercel/postgres':
     specifier: ^0.7.0
-    version: 0.7.1
+    version: 0.7.2
   autoprefixer:
     specifier: ^10.4.16
     version: 10.4.16(postcss@8.4.30)
@@ -1096,7 +1096,7 @@ packages:
       glob: 7.1.7
       graceful-fs: 4.2.11
       micromatch: 4.0.5
-      node-gyp-build: 4.6.0
+      node-gyp-build: 4.8.0
       resolve-from: 5.0.0
     transitivePeerDependencies:
       - encoding
@@ -1132,8 +1132,8 @@ packages:
       - supports-color
     dev: false
 
-  /@vercel/postgres@0.7.1:
-    resolution: {integrity: sha512-QTOQrzxkB+H37HrQ8n7uxuXQb9Q4/L8sibMuO98dNvkIv79iDmiy/jJ1rAcwn+D/6In3LnXAoH6S+XL6rpi8tQ==}
+  /@vercel/postgres@0.7.2:
+    resolution: {integrity: sha512-IqR/ZAvoPGcPaXl9eWWB5KaA+w/81RzZa/18P4izQRHpNBkTGt9HwGfYi9+wut5UgxNq4QSX9A7HIQR6QDvX2Q==}
     engines: {node: '>=14.6'}
     dependencies:
       '@neondatabase/serverless': 0.7.2
@@ -1765,7 +1765,7 @@ packages:
     engines: {node: '>=6.14.2'}
     requiresBuild: true
     dependencies:
-      node-gyp-build: 4.6.0
+      node-gyp-build: 4.8.0
     dev: false
 
   /builtin-status-codes@3.0.0:
@@ -5216,8 +5216,8 @@ packages:
       whatwg-url: 5.0.0
     dev: false
 
-  /node-gyp-build@4.6.0:
-    resolution: {integrity: sha512-NTZVKn9IylLwUzaKjkas1e4u2DLNcV4rdYagA4PWdPwW87Bi7z+BznyKSRwS/761tV/lzCGXplWsiaMjLqP2zQ==}
+  /node-gyp-build@4.8.0:
+    resolution: {integrity: sha512-u6fs2AEUljNho3EYTJNBfImO5QTo/J/1Etd+NVdCj7qWKUSN/bSLkZwhDv7I+w/MSC6qJ4cknepkAYykDdK8og==}
     hasBin: true
     dev: false
 
@@ -7337,7 +7337,7 @@ packages:
     engines: {node: '>=6.14.2'}
     requiresBuild: true
     dependencies:
-      node-gyp-build: 4.6.0
+      node-gyp-build: 4.8.0
     dev: false
 
   /util-deprecate@1.0.2:
