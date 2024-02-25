@@ -49,7 +49,7 @@ dependencies:
     version: 4.10.0
   pizzip:
     specifier: ^3.1.4
-    version: 3.1.4
+    version: 3.1.6
   postcss:
     specifier: ^8.4.30
     version: 8.4.30
@@ -5685,8 +5685,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /pizzip@3.1.4:
-    resolution: {integrity: sha512-08yol1Of5Og1E0a1R56c+Z1jVkvfTEBUouwG9WYwCqpj8BjdcpEpLgZsrdLFNQYRgtxK0OOe0JpmBWJdrPr6Dg==}
+  /pizzip@3.1.6:
+    resolution: {integrity: sha512-FCG2lSMVlrt2jB1iokujjXexanfszV/Y04t4mu1icdSEC/vb/2qDISr2kgENzdkThd1jkRNjvipWitU4gpbM/g==}
     dependencies:
       pako: 2.1.0
     dev: false
