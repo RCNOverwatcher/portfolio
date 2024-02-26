@@ -31,7 +31,7 @@ dependencies:
     version: 10.4.17(postcss@8.4.35)
   core-js:
     specifier: ^3.32.2
-    version: 3.32.2
+    version: 3.36.0
   docxtemplater:
     specifier: ^3.39.1
     version: 3.46.0
@@ -2130,8 +2130,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: false
 
-  /core-js@3.32.2:
-    resolution: {integrity: sha512-pxXSw1mYZPDGvTQqEc5vgIb83jGQKFGYWY76z4a7weZXUolw3G+OvpZqSRcfYOoOVUQJYEPsWeQK8pKEnUtWxQ==}
+  /core-js@3.36.0:
+    resolution: {integrity: sha512-mt7+TUBbTFg5+GngsAxeKBTl5/VS0guFeJacYge9OmHb+m058UwwIm41SE9T4Den7ClatV57B6TYTuJ0CX1MAw==}
     requiresBuild: true
     dev: false
 
