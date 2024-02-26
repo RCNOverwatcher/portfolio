@@ -34,7 +34,7 @@ dependencies:
     version: 3.32.2
   docxtemplater:
     specifier: ^3.39.1
-    version: 3.39.1
+    version: 3.46.0
   file-saver:
     specifier: ^2.0.5
     version: 2.0.5
@@ -2462,8 +2462,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /docxtemplater@3.39.1:
-    resolution: {integrity: sha512-w7Sqq+HaLrVoLZnjHYo57VqoMn8SV/hnFc5IZ3IKPD3/eDnZLB9pav71lb2yP8SIZIPwJBH/HzE7rxorJn4ynQ==}
+  /docxtemplater@3.46.0:
+    resolution: {integrity: sha512-KZEy3icAm+Y+EtcAxomDXrjZq2HzzQdHVu+g0VQUttt0c7cMmTztNGJoWLmCTssCjOtGFePzRVwMQp8bewL0TQ==}
     engines: {node: '>=0.10'}
     dependencies:
       '@xmldom/xmldom': 0.8.10
