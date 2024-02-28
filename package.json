@@ -46,7 +46,7 @@
     "vercel": "^33.0.0"
   },
   "devDependencies": {
-    "@types/node": "20.11.21",
+    "@types/node": "20.11.22",
     "@types/react": "18.2.60",
     "eslint": "8.57.0",
     "eslint-config-next": "14.1.0",
