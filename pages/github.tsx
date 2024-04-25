@@ -18,7 +18,7 @@ const GithubPage = ({ repos, user }) => {
           <h3 className={styles.username}>{user.login}</h3>
         </div>
         <div>
-          <h3>{user.public_repos} repos</h3>
+          <h3>{user.public_repos} public repos</h3>
         </div>
         <div>
           <h3>{user.followers} followers</h3>
