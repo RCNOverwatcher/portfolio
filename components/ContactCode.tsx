@@ -13,8 +13,8 @@ const contactItems = [
   },
   {
     social: 'github',
-    link: 'RCNOverwatcher',
-    href: 'https://github.com/RCNOverwatcher',
+    link: 'rcnsh',
+    href: 'https://github.com/rcnsh',
   },
   {
     social: 'linkedin',

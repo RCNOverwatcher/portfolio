@@ -5,8 +5,8 @@
     "image": "https://i.imgur.com/73otNSU.png",
     "description": "A simple platformer game build in python using pygame as an entry to the Raspberry Pi Competition.",
     "tags": ["python", "pygame", "premiere-pro"],
-    "source_code": "https://github.com/jh-exe/RaspberryPyGame",
-    "demo": "https://github.com/jh-exe/RaspberryPyGame"
+    "source_code": "https://github.com/esquaredj/RaspberryPyGame",
+    "demo": "https://pygame.rcn.sh/"
   },
   {
     "id": 2,
@@ -14,7 +14,7 @@
     "image": "https://i.imgur.com/DMqRmLN.png",
     "description": "A GUI for the Pointercrate API. My first adventure into JavaScript.",
     "tags": ["vanilla-js", "css", "html"],
-    "source_code": "https://github.com/RCNOverwatcher/pointercrate-api-search/",
-    "demo": "https://jacobwiltshire.com/personal/pointercrate"
+    "source_code": "https://github.com/rcnsh/pointercrate-api-search/",
+    "demo": "https://github.com/rcnsh/pointercrate-api-search"
   }
 ]

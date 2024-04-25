@@ -12,7 +12,7 @@ const Bottombar = () => {
     <footer className={styles.bottomBar}>
       <div className={styles.container}>
         <a
-          href="https://github.com/RCNOverwatcher/portfolio"
+          href="https://github.com/rcnsh/portfolio"
           target="_blank"
           rel="noreferrer noopener"
           className={styles.section}

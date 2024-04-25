@@ -3,7 +3,7 @@ export default function Notes() {
     <>
       <meta
         http-equiv="Refresh"
-        content="0; url='https://rcnoverwatcher.github.io/notes'"
+        content="0; url='https://notes.rcn.sh'"
       />
     </>
   );
